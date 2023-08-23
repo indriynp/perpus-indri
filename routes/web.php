@@ -33,3 +33,5 @@ Route::post('register/action', [RegisterController::class, 'actionregister'])->n
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
