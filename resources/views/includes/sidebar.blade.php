@@ -31,7 +31,31 @@
                               </p>
                           </a>
                       </li>
-                  </ul>
+                      <li class="nav-item">
+                <a href="{{ url('/buku') }}" class="nav-link">
+                  <i class="fas fa-fw fa-book"></i>
+                  <p>Buku</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="./penulis" class="nav-link">
+                  <i class="fas fa-fw fa-pencil"></i>
+                  <p>Penulis</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="./penerbit" class="nav-link">
+                  <i class="fas fa-fw fa-user"></i>
+                  <p>Penerbit</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="./kategori" class="nav-link">
+                  <i class="fas fa-fw fa-tags"></i>
+                  <p>Kategori</p>
+                </a>
+              </li>
+                </ul>
               </nav>
           </div>
       </aside>
