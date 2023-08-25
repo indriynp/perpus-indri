@@ -34,6 +34,7 @@ class BukuController extends Controller
     public function store(Request $request)
     {
         $validateData = $request->validate([
+            'id' => 'required',
             'nama' => 'required',
             'id_penulis' => 'required',
             'tahun_terbit' => 'required',

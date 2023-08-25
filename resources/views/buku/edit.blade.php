@@ -4,7 +4,7 @@
 <div class="content-wrapper">
   
   <div class="card-body">
-    <form action="{{ url('/buku/tambah') }}" method="post">
+    <form action="{{ url('/buku/edit') }}" method="post">
     @csrf
     <div class="form-group">
     <label for="id">Id</label>
@@ -53,7 +53,7 @@
     </div>
     <div class="form-group">
     <label for="id_kategori">Id Kategori</label>
-    <input type="text" class="form-control form-control-border" id="id_kategori" placeholder="Id Kategori" name="id_kategori" value="{{ old('id_kategori') }}">
+    <input type="text" class="form-control form-control-border" id="id_kategori" placeholder="Tahun Terbit" name="id_kategori" value="{{ old('id_kategori') }}">
     @error('id_kategori')
     <div class="invalid-feedback">
     {{ $message }}

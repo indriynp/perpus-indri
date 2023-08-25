@@ -24,7 +24,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item menu-open">
-                            <a href="#" class="nav-link active">
+                            <a href="{{ url('/home') }}" class="nav-link active">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -38,19 +38,19 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./penulis" class="nav-link">
+                <a href="{{ url('/penulis') }}" class="nav-link">
                   <i class="fas fa-fw fa-pencil"></i>
                   <p>Penulis</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./penerbit" class="nav-link">
+                <a href="{{ url('/penerbit') }}" class="nav-link">
                   <i class="fas fa-fw fa-user"></i>
                   <p>Penerbit</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./kategori" class="nav-link">
+                <a href="{{ url('/kategori') }}" class="nav-link">
                   <i class="fas fa-fw fa-tags"></i>
                   <p>Kategori</p>
                 </a>
