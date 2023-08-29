@@ -5,6 +5,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\BukuController;
+use App\Http\Controllers\KategoriController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,11 +19,11 @@ use App\Http\Controllers\BukuController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+ // Route::get('/', function () {
+ //     return view('home');
+ // });
 
-Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::get('/', [LoginController::class, 'login'])->name('login');
 Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
 
 Route::get('home', [HomeController::class, 'index'])->name('home')->middleware('auth');
@@ -36,4 +38,10 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('buku', BukuController::class);
-Route::post('/buku/tambah', [BukuController::class, 'create']);
+Route::post('/buku/tambah', [BukuController::class, 'store']);
+Route::get('/buku/hapus', [BukuController::class, 'destroy']);
+
+Route::resource('kategori', KategoriController::class);
+Route::post('/kategori/tambah', [KategoriController::class, 'store']);
+Route::get('/kategori/hapus', [KategoriController::class, 'destroy']);
+
