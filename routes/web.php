@@ -47,8 +47,8 @@ Route::resource('kategori', KategoriController::class);
 Route::post('/kategori/tambah', [KategoriController::class, 'store']);
 Route::get('/kategori/hapus', [KategoriController::class, 'destroy']);
 
-Route:middleware(['auth'])->group(function() {
-    Route::get('/', [DasborController::class, 'index'])
+Route::middleware(['auth','admin'])->group(function() {
+    Route::get('/', [DashboardController::class, 'index'])
     ->name('dashboard');
 });
 

@@ -1,68 +1,70 @@
-@extends('layouts.mainadmin')
+@extends('layouts.admin')
 
 @section('content')
 
-<section class="content">
-  <div class="container-fluid">
-    @if (session()->has('success'))
-    <div class="alert alert-success" role="alert">
-      {{ session('success') }}
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <h3>Buku</h3>
+        </div>
+    </div>
+</div>
+
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h2 class="card-title">Data Buku</h2>
+    </div>
+
+
+    @if ($message = Session::get('success'))
+    <div class="alert alert-success">
+        <p>{{ $message }}</p>
     </div>
     @endif
 
+    <div class="card-body">
+        <div style="margin-bottom: 20px">
+            <a href="#" class="btn btn-primary btn-flat">
+                <i class="fa fa-plus-circle"></i> Tambah Data
+            </a>
+        </div>
+        <div style="overflow: auto">
+            <table class="table table-bordered table-condensed">
+                <tr>
+                    <th style="text-align:center;">No</th>
+                    <th style="text-align:center;">Judul Buku</th>
+                    <th style="text-align:center;">Tahun Terbit</th>
+                    <th style="text-align:center;">Penulis</th>
+                    <th style="text-align:center;">Penerbit</th>
+                    <th style="text-align:center">Kategori</th>
+                    <th width="200px" style="text-align: center;">Sinopsis</th>
+                    <th style="text-align:center;">Sampul</th>
+                    <th width="250px" style="text-align: center;">Action</th>
+                </tr>
 
-    <div class="card mt-4">
-      <div class="card-header">
-        Data buku <br>
-        <a href="{{ url('/buku/create') }}" class="btn btn-primary btn-sm">Tambah buku</a>
-      </div>
-      <div class="card-body">
-        <table class="table table-striped-columns">  
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>Nama Buku</th>
-              <th>Id penulis</th>
-              <th>Tahun terbit</th>
-              <th>Id penerbit</th>
-              <th>Id kategori</th>
-              <th>Sinopsis</th>
-              <th>Sampul</th>
-              <th>Aksi</th>      
-            </tr>
-          </thead>
-          @foreach($buku as $b)
-          <tbody>
-            <tr>
-              <td>{{ $b->id}}</td>
-              <td>{{ $b->nama}}</td>
-              <td>{{ $b->id_penulis}}</td>
-              <td>{{ $b->tahun_terbit}}</td>
-              <td>{{ $b->id_penerbit}}</td>
-              <td>{{ $b->id_kategori}}</td>
-              <td>{{ $b->sinopsis}}</td>
-              <td>{{ $b->sampul}}</td>
-              <td>
-                <a href="{{ route('buku.edit',$b->id) }}" class="badge bg-warning">
-                  <i class="fas fa fa-edit text-white"></i>
-                </a>
-                <form action="{{ route('buku.destroy',$b->id) }}" method="post" class="d-inline">
-                  @method('delete')
-                  @csrf
-                  <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')">
-                    <i class="fas fa fa-trash text-white"></i>
-                  </button>
-                </form>
-              </td>
-            </tr>
-          </tbody>
-          @endforeach
-        </table>
-      </div>
+                <tr>
+                    <td style="text-align:center"></td>
+                    <td style="text-align:center"></td>
+                    <td style="text-align:center" style="text-align:center"></td>
+                    <td style="text-align:center"></td>
+                    <td style="text-align:center"></td>
+                    <td style="text-align:center"></td>
+                    <td style="text-align:center"></td>
+                    <td style="text-align:center"></td>
+                    <td style="text-align:center">
+                        <form action="" method="POST">
+
+                            <a class="btn btn-info" href="">Show</a>
+
+                            <a class="btn btn-primary" href="">Edit</a>
+
+                            <button type="submit" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?');" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
-  </div>
-</section>
-
-
-
+</div>
 @endsection
