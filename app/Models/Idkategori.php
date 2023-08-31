@@ -10,7 +10,7 @@ class Idkategori extends Model
     use HasFactory;
     protected $guarded = [];
 
-    public function kategori()
+    public function Kategori()
     {
         return $this->hasMany(Kategori::class);
     }

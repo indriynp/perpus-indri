@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Idkategori;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,5 +19,15 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        Idkategori::create([
+            'id_kategori' => 'Romance',
+        ]);
+        Idkategori::create([
+            'id_kategori' => 'Horor',
+        ]);
+        Idkategori::create([
+            'id_kategori' => 'Comedy',
+        ]);
     }
 }
