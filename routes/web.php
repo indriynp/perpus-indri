@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegisterController;
@@ -44,4 +46,9 @@ Route::get('/buku/hapus', [BukuController::class, 'destroy']);
 Route::resource('kategori', KategoriController::class);
 Route::post('/kategori/tambah', [KategoriController::class, 'store']);
 Route::get('/kategori/hapus', [KategoriController::class, 'destroy']);
+
+Route:middleware(['auth'])->group(function() {
+    Route::get('/', [DasborController::class, 'index'])
+    ->name('dashboard');
+});
 
