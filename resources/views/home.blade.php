@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AdminLTE 3 | Dashboard</title>
 
+  @include('includes.style')
+    
+
     <!-- Google Font: Source Sans Pro -->
     
 </head>
