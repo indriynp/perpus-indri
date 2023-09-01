@@ -5,7 +5,7 @@
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
-            <h3>Buku</h3>
+            <h3>Kategori</h3>
         </div>
     </div>
 </div>
@@ -13,7 +13,7 @@
 
 <div class="card card-primary">
     <div class="card-header">
-        <h2 class="card-title">Data Buku</h2>
+        <h2 class="card-title">Data Kategori</h2>
     </div>
 
 
@@ -25,7 +25,7 @@
 
     <div class="card-body">
         <div style="margin-bottom: 20px">
-            <a href="{{ route('buku_create') }}" class="btn btn-primary btn-flat">
+            <a href="{{ route('kategori_create') }}" class="btn btn-primary btn-flat">
                 <i class="fa fa-plus-circle"></i> Tambah Data
             </a>
         </div>
@@ -35,33 +35,23 @@
                     <tr>
                         <th style="text-align:center;">No</th>
                         <th style="text-align:center;">Nama</th>
-                        <th style="text-align:center;">Penulis</th>
-                        <th style="text-align:center;">Tahun Terbit</th>
-                        <th style="text-align:center;">Penerbit</th>
                         <th style="text-align:center;">Kategori</th>
-                        <th width="200px" style="text-align: center;">Sinopsis</th>
-                        <th style="text-align:center;">Sampul</th>
                         <th width="250px" style="text-align: center;">Action</th>
                     </tr>
                 </thead>
-                @foreach($buku as $b)
+                @foreach($kategori as $k)
                 <tbody>
                     <tr>
                         <td style="text-align:center">{{ $loop->iteration }}</td>
-                        <td style="text-align:center">{{ $b->nama }}</td>
-                        <td style="text-align:center" style="text-align:center">{{ $b->id_penulis }}</td>
-                        <td style="text-align:center">{{ $b->tahun_terbit }}</td>
-                        <td style="text-align:center">{{ $b->id_penerbit }}</td>
-                        <td style="text-align:center">{{ $b->id_kategori }}</td>
-                        <td style="text-align:center">{{ $b->sinopsis }}</td>
-                        <td style="text-align:center">{{ $b->sampul }}</td>
+                        <td style="text-align:center">{{ $k->nama }}</td>
+                        <td style="text-align:center">{{ $k->kategori }}</td>
                         <td style="text-align:center">
                             <for action="" method="POST">
 
                                 <a class="btn btn-info" href="">Show</a>
 
-                                <a class="btn btn-primary" href="{{ route('buku_edit') }}">Edit</a>
-
+                                <a class="btn btn-primary" href="{{ route('kategori_edit') }}">Edit</a>
+                                
                                 <button type="submit" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?');" class="btn btn-danger">Delete</button>
                         </td>
                     </tr>

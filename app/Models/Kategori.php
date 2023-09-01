@@ -11,7 +11,4 @@ class Kategori extends Model
     use HasFactory;
     protected $guarded = [];
 
-    public function idkategori(){
-        return $this->belongsTo(Idkategori::class, 'idkategori');
-     }
 }

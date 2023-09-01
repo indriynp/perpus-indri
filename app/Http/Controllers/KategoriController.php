@@ -3,19 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kategori;
-use App\Models\Idkategori;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Redirect;
 
-class kategoriController extends Controller
+class KategoriController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('kategori.index', [
+        return view('pages.admin.kategori.index', [
             'title' => 'Kategori',
+            'kategori' => Kategori::all(),
         ]);
     }
 
@@ -24,9 +24,8 @@ class kategoriController extends Controller
      */
     public function create()
     {
-        return view('kategori.create', [
+        return view('pages.admin.kategori.create', [
             'title' => 'Tambah kategori',
-            'idkategori' => Idkategori::all(),
         ]);
     }
 
@@ -35,14 +34,18 @@ class kategoriController extends Controller
      */
     public function store(Request $request)
     {
-        $validateData = $request->validate([
-            'id' => 'required',
+        $request->validate([
             'nama' => 'required',
+            'id_kategori' => 'required',
         ]);
 
-        kategori::create($validateData);
+        Kategori::create([
+            'nama' => $request->nama,
+            'kategori' => $request->id_kategori,
 
-        return redirect('/kategori')->with('success', 'Berhasil menambahkan kategori!');
+        ]);
+
+        return Redirect::route('kategori_index');
     }
 
     /**
@@ -58,7 +61,7 @@ class kategoriController extends Controller
      */
     public function edit(Kategori $kategori)
     {
-        return view('kategori.edit', [
+        return view('pages.admin.kategori.edit', [
             'title' => 'Edit',
             'kategori' => $kategori,
         ]);
@@ -71,6 +74,7 @@ class kategoriController extends Controller
     {
         $rules = [
             'nama' => 'required',
+            'id_kategori' => 'required',
         ];
 
         $validateData = $request->validate($rules);

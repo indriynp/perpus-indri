@@ -25,15 +25,15 @@
               </div>
               <div class="form-group">
                 <label for="id_penulis">Penulis</label>
-                <input type="text" class="form-control" id="id_penulis" name="id_penulis" placeholder="Enter id penulis">
+                <input type="text" class="form-control" id="id_penulis" name="id_penulis" placeholder="Enter penulis">
               </div>
               <div class="form-group">
                 <label for="id_penerbit">Penerbit</label>
-                <input type="text" class="form-control" id="id_penerbit" name="id_penerbit" placeholder="Enter id penerbit">
+                <input type="text" class="form-control" id="id_penerbit" name="id_penerbit" placeholder="Enter penerbit">
               </div>
               <div class="form-group">
                 <label for="id_kategori">Kategori</label>
-                <input type="text" class="form-control" id="id_kategori" name="id_kategori" placeholder="Enter id kategori">
+                <input type="text" class="form-control" id="id_kategori" name="id_kategori" placeholder="Enter kategori">
               </div>
               <div class="form-group">
                 <label for="sinopsis">Sinopsis</label>
