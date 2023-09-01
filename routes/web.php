@@ -46,6 +46,9 @@ Route::get('/buku/create', [BukuController::class, 'create'])->name('buku_create
 Route::post('/buku/store', [BukuController::class, 'store'])->name('buku_store');
 
 
+Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori_index');
+
+
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])
         ->name('dashboard');

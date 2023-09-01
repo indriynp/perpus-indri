@@ -16,8 +16,6 @@ class kategoriController extends Controller
     {
         return view('kategori.index', [
             'title' => 'Kategori',
-            'idkategori' => Idkategori::all(),
-            'kategori' => Kategori::paginate(5),
         ]);
     }
 
@@ -45,7 +43,6 @@ class kategoriController extends Controller
         kategori::create($validateData);
 
         return redirect('/kategori')->with('success', 'Berhasil menambahkan kategori!');
-        
     }
 
     /**

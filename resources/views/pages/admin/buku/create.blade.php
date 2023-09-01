@@ -16,20 +16,16 @@
             <form action="{{ route('buku_store') }}" method="POST" enctype="multipart/form-data">
               @csrf
               <div class="form-group">
-                <label for="id">Id</label>
-                <input type="text" class="form-control" id="id" placeholder="Enter id">
-              </div>
-              <div class="form-group">
                 <label for="nama">Nama</label>
                 <input type="text" class="form-control" id="nama" name="nama" placeholder="Enter nama">
               </div>
               <div class="form-group">
-                <label for="id_penulis">Penulis</label>
-                <input type="text" class="form-control" id="id_penulis" name="id_penulis" placeholder="Enter id penulis">
-              </div>
-              <div class="form-group">
                 <label for="tahun_terbit">Tahun Terbit</label>
                 <input type="text" class="form-control" id="tahun_terbit" name="tahun_terbit" placeholder="Enter tahun terbit">
+              </div>
+              <div class="form-group">
+                <label for="id_penulis">Penulis</label>
+                <input type="text" class="form-control" id="id_penulis" name="id_penulis" placeholder="Enter id penulis">
               </div>
               <div class="form-group">
                 <label for="id_penerbit">Penerbit</label>
