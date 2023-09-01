@@ -56,13 +56,14 @@
                         <td style="text-align:center">{{ $b->sinopsis }}</td>
                         <td style="text-align:center">{{ $b->sampul }}</td>
                         <td style="text-align:center">
-                            <for action="" method="POST">
 
-                                <a class="btn btn-info" href="">Show</a>
+                            <a class="btn btn-info" href="">Show</a>
 
-                                <a class="btn btn-primary" href="{{ route('buku_edit') }}">Edit</a>
+                            <a href="{{ route('buku_edit', $b->id) }}" class="btn btn-warning">
+                                <i class="bi bi-pencil"></i>
+                            </a>
 
-                                <button type="submit" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?');" class="btn btn-danger">Delete</button>
+                            <button type="submit" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?');" class="btn btn-danger">Delete</button>
                         </td>
                     </tr>
                 </tbody>

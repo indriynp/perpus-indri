@@ -45,8 +45,8 @@ Route::get('/buku', [BukuController::class, 'index'])->name('buku_index');
 Route::get('/buku/create', [BukuController::class, 'create'])->name('buku_create');
 Route::post('/buku/store', [BukuController::class, 'store'])->name('buku_store');
 
-Route::get('/buku/edit', [BukuController::class, 'edit'])->name('buku_edit');
-Route::post('/buku/update', [BukuController::class, 'update'])->name('buku_update');
+Route::get('/buku/edit/{id}', [BukuController::class, 'edit'])->name('buku_edit');
+Route::post('/buku/update/{buku}', [BukuController::class, 'update'])->name('buku_update');
 
 //KATEGORI
 Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori_index');
