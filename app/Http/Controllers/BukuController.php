@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Buku;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class BukuController extends Controller
 {
@@ -33,8 +34,7 @@ class BukuController extends Controller
      */
     public function store(Request $request)
     {
-        $validateData = $request->validate([
-            'id' => 'required',
+        $request->validate([
             'nama' => 'required',
             'id_penulis' => 'required',
             'tahun_terbit' => 'required',
@@ -44,10 +44,18 @@ class BukuController extends Controller
             'sampul' => 'required',
         ]);
 
-        Buku::create($validateData);
+        Buku::create([
+            'nama' => $request->nama,
+            'tahun_terbit' => $request->tahun_terbit,
+            'id_penulis' => $request->id_penulis,
+            'id_penerbit' => $request->id_penerbit,
+            'id_kategori' => $request->id_kategori,
+            'sinopsis' => $request->sinopsis,
+            'sampul' => $request->sampul,
 
-        return redirect('/buku')->with('success', 'Berhasil menambahkan buku!');
-        
+        ]);
+
+        return Redirect::route('buku_index');
     }
 
     /**

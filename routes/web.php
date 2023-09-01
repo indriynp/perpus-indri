@@ -21,9 +21,9 @@ use App\Http\Controllers\KategoriController;
 |
 */
 
- // Route::get('/', function () {
- //     return view('home');
- // });
+// Route::get('/', function () {
+//     return view('home');
+// });
 
 Route::get('/', [LoginController::class, 'login'])->name('login');
 Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
@@ -39,16 +39,14 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('buku', BukuController::class);
-Route::post('/buku/tambah', [BukuController::class, 'store']);
-Route::get('/buku/hapus', [BukuController::class, 'destroy']);
 
-Route::resource('kategori', KategoriController::class);
-Route::post('/kategori/tambah', [KategoriController::class, 'store']);
-Route::get('/kategori/hapus', [KategoriController::class, 'destroy']);
+//BUKU
+Route::get('/buku', [BukuController::class, 'index'])->name('buku_index');
+Route::get('/buku/create', [BukuController::class, 'create'])->name('buku_create');
+Route::post('/buku/store', [BukuController::class, 'store'])->name('buku_store');
 
-Route::middleware(['auth','admin'])->group(function() {
+
+Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])
-    ->name('dashboard');
+        ->name('dashboard');
 });
-
