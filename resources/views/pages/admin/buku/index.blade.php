@@ -35,10 +35,10 @@
                     <tr>
                         <th style="text-align:center;">No</th>
                         <th style="text-align:center;">Nama</th>
-                        <th style="text-align:center;">Id Penulis</th>
+                        <th style="text-align:center;">Penulis</th>
                         <th style="text-align:center;">Tahun Terbit</th>
-                        <th style="text-align:center;">Id Penerbit</th>
-                        <th style="text-align:center;">Id Kategori</th>
+                        <th style="text-align:center;">Penerbit</th>
+                        <th style="text-align:center;">Kategori</th>
                         <th width="200px" style="text-align: center;">Sinopsis</th>
                         <th style="text-align:center;">Sampul</th>
                         <th width="250px" style="text-align: center;">Action</th>
