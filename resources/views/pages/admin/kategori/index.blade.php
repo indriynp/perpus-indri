@@ -50,15 +50,19 @@
 
                                 <a class="btn btn-info" href="">Show</a>
 
-                                <a class="btn btn-primary" href="{{ route('kategori_edit') }}">Edit</a>
+                                <a href="{{ route('kategori_edit', $k->id) }}" class="btn btn-warning">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
                                 
+                                <form action="{{ route('kategori_destroy', $k->id) }}" method="post" class="d-inline">
+                                @csrf
                                 <button type="submit" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?');" class="btn btn-danger">Delete</button>
-                        </td>
-                    </tr>
-                </tbody>
-                @endforeach
-            </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                    @endforeach
+                </table>
+            </div>
         </div>
     </div>
-</div>
-@endsection
+    @endsection

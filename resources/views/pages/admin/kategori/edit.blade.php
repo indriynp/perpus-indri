@@ -13,15 +13,15 @@
           </div>
 
           <div class="card-body">
-            <form action="{{ route('kategori_update') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('kategori_update', $item->id) }}" method="POST" enctype="multipart/form-data">
               @csrf
               <div class="form-group">
                 <label for="nama">Nama</label>
-                <input type="text" class="form-control" id="nama" name="nama" placeholder="Enter nama">
+                <input type="text" class="form-control" id="nama" name="nama" placeholder="Enter nama" value="{{ $item->nama }}">
               </div>
               <div class="form-group">
-                <label for="id_kategori">Kategori</label>
-                <input type="text" class="form-control" id="id_kategori" name="id_kategori" placeholder="Enter kategori">
+                <label for="kategori">Kategori</label>
+                <input type="text" class="form-control" id="kategori" name="kategori" placeholder="Enter kategori" value="{{ $item->kategori }}">
               </div>
           </div>
           <div class="card-footer">

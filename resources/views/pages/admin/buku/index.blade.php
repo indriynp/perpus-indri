@@ -63,7 +63,11 @@
                                 <i class="bi bi-pencil"></i>
                             </a>
 
+                            <form action="{{ route('buku_destroy', $b->id) }}" method="post" class="d-inline">
+                                @csrf
+
                             <button type="submit" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?');" class="btn btn-danger">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 </tbody>

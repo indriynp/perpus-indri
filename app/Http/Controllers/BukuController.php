@@ -113,6 +113,6 @@ class BukuController extends Controller
     {
         Buku::destroy($buku->id);
 
-        return redirect('/buku')->with('success', 'Berhasil menghapus data buku!');
+        return redirect('/buku');
     }
 }

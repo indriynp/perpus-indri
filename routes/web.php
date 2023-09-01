@@ -47,14 +47,18 @@ Route::post('/buku/store', [BukuController::class, 'store'])->name('buku_store')
 
 Route::get('/buku/edit/{id}', [BukuController::class, 'edit'])->name('buku_edit');
 Route::post('/buku/update/{buku}', [BukuController::class, 'update'])->name('buku_update');
+Route::post('/buku/destroy/{buku}', [BukuController::class, 'destroy'])->name('buku_destroy');
+
 
 //KATEGORI
 Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori_index');
 Route::get('/kategori/create', [KategoriController::class, 'create'])->name('kategori_create');
 Route::post('/kategori/store', [KategoriController::class, 'store'])->name('kategori_store');
 
-Route::get('/kategori/edit', [KategoriController::class, 'edit'])->name('kategori_edit');
-Route::post('/kategori/update', [KategoriController::class, 'update'])->name('kategori_update');
+Route::get('/kategori/edit/{id}', [KategoriController::class, 'edit'])->name('kategori_edit');
+Route::post('/kategori/update/{kategori}', [KategoriController::class, 'update'])->name('kategori_update');
+Route::post('/kategori/destroy/{kategori}', [KategoriController::class, 'destroy'])->name('kategori_destroy');
+
 
 
 Route::middleware(['auth', 'admin'])->group(function () {

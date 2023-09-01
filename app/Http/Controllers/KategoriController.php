@@ -59,29 +59,34 @@ class KategoriController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Kategori $kategori)
+    public function edit($id)
     {
-        return view('pages.admin.kategori.edit', [
-            'title' => 'Edit',
-            'kategori' => $kategori,
+        $item = Kategori::findOrFail($id);
+
+         return view('pages.admin.kategori.edit', [
+            'item' => $item
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Kategori $kategori)
+    public function update(Kategori $kategori, Request $request)
     {
-        $rules = [
+        $request->validate([
             'nama' => 'required',
-            'id_kategori' => 'required',
-        ];
+            'kategori' => 'required',
+             
+        ]);
 
-        $validateData = $request->validate($rules);
+        $kategori->update([
+            'nama' => $request->nama,
+            
+            'kategori' => $request->kategori,
+            
+        ]);
 
-        Kategori::where('id', $kategori->id)->update($validateData);
-
-        return redirect('/kategori')->with('success', 'Berhasil merubah data kategori!');
+        return redirect()->route('kategori_index');
     }
 
     /**
@@ -91,6 +96,6 @@ class KategoriController extends Controller
     {
         Kategori::destroy($kategori->id);
 
-        return redirect('/kategori')->with('success', 'Berhasil menghapus data kategori!');
+        return redirect('/kategori');
     }
 }
