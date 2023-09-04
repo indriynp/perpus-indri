@@ -20,14 +20,5 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        Idkategori::create([
-            'id_kategori' => 'Romance',
-        ]);
-        Idkategori::create([
-            'id_kategori' => 'Horor',
-        ]);
-        Idkategori::create([
-            'id_kategori' => 'Comedy',
-        ]);
     }
 }

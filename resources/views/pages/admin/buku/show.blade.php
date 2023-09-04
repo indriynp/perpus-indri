@@ -44,35 +44,20 @@
                         <th width="250px" style="text-align: center;">Action</th>
                     </tr>
                 </thead>
-                @foreach($buku as $b)
                 <tbody>
                     <tr>
-                        <td style="text-align:center">{{ $loop->iteration }}</td>
-                        <td style="text-align:center">{{ $b->nama }}</td>
-                        <td style="text-align:center" style="text-align:center">{{ $b->id_penulis }}</td>
-                        <td style="text-align:center">{{ $b->tahun_terbit }}</td>
-                        <td style="text-align:center">{{ $b->id_penerbit }}</td>
-                        <td style="text-align:center">{{ $b->kategori->nama }}</td>
-                        <td style="text-align:center">{{ $b->sinopsis }}</td>
-                        <td style="text-align:center">{{ $b->sampul }}</td>
+                        <td style="text-align:center">{{ $buku->nama }}</td>
+                        <td style="text-align:center" style="text-align:center">{{ $buku->id_penulis }}</td>
+                        <td style="text-align:center">{{ $buku->tahun_terbit }}</td>
+                        <td style="text-align:center">{{ $buku->id_penerbit }}</td>
+                        <td style="text-align:center">{{ $buku->id_kategori }}</td>
+                        <td style="text-align:center">{{ $buku->sinopsis }}</td>
+                        <td style="text-align:center">{{ $buku->sampul }}</td>
                         <td style="text-align:center">
 
-                            <a href="{{ route('buku_show', $b->id) }}" class="btn btn-info">
-                                <i class="fa-regular fa-eye"></i>
-                            </a>
-
-                            <a href="{{ route('buku_edit', $b->id) }}" class="btn btn-warning">
-                                <i class="bi bi-pencil"></i>
-                            </a>
-
-                            <form action="{{ route('buku_destroy', $b->id) }}" method="post" class="d-inline">
-                                @csrf
-                            <button type="submit" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?');" class="btn btn-danger">Delete</button>
-                            </form>
                         </td>
                     </tr>
                 </tbody>
-                @endforeach
             </table>
         </div>
     </div>
