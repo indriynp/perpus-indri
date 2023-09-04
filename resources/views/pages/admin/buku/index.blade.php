@@ -52,7 +52,7 @@
                         <td style="text-align:center" style="text-align:center">{{ $b->id_penulis }}</td>
                         <td style="text-align:center">{{ $b->tahun_terbit }}</td>
                         <td style="text-align:center">{{ $b->id_penerbit }}</td>
-                        <td style="text-align:center">{{ $b->kategori->nama }}</td>
+                        <td style="text-align:center">{{ @$b->kategori->nama }}</td>
                         <td style="text-align:center">{{ $b->sinopsis }}</td>
                         <td style="text-align:center">{{ $b->sampul }}</td>
                         <td style="text-align:center">
