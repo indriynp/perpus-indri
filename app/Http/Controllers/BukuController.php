@@ -77,9 +77,11 @@ class BukuController extends Controller
     public function edit($id)
     {
         $item = Buku::findOrFail($id);
+        $kategori = Buku::findOrFail($id);
 
         return view('pages.admin.buku.edit', [
-            'item' => $item
+            'item' => $item ,
+            'kategori' => $kategori,
         ]);
     }
 

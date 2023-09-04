@@ -18,11 +18,7 @@
               <div class="form-group">
                 <label for="nama">Nama</label>
                 <input type="text" class="form-control" id="nama" name="nama" placeholder="Enter nama">
-              </div>
-              <div class="form-group">
-                <label for="id_kategori">Kategori</label>
-                <input type="text" class="form-control" id="id_kategori" name="id_kategori" placeholder="Enter id kategori">
-              </div>  
+              </div> 
           </div>
           <div class="card-footer">
             <button type="submit" class="btn btn-primary">Submit</button>

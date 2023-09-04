@@ -33,7 +33,12 @@
               </div>
               <div class="form-group">
                 <label for="id_kategori">Kategori</label>
-                <input type="text" class="form-control" id="id_kategori" name="id_kategori" placeholder="Enter kategori" value="{{ $item->id_kategori }}">
+                <select class="form-control" id="id_kategori" name="id_kategori">
+                  <option selected>Pilih Kategori</option>
+                  @foreach($kategori as $k)
+                  <option value="{{ $kategori->id }}">{{ $kategori->nama }}</option>
+                  @endforeach
+                </select>
               </div>
               <div class="form-group">
                 <label for="sinopsis">Sinopsis</label>
@@ -43,10 +48,10 @@
                 <label for="sampul">Sampul</label>
                 <input type="text" class="form-control" id="sampul" name="sampul" placeholder="Enter sampul" value="{{ $item->sampul }}">
               </div>
-          </div>
-          <div class="card-footer">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
+            </div>
+            <div class="card-footer">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
           </form>
 
         </div>
