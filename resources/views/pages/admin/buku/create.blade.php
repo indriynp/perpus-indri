@@ -46,12 +46,12 @@
               </div>
               <div class="form-group">
                 <label for="sampul">Sampul</label>
-                <input type="text" class="form-control" id="sampul" name="sampul" placeholder="Enter sampul">
+                <input type="file" class="form-control" id="sampul" name="sampul">
               </div>
-          </div>
-          <div class="card-footer">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
+            </div>
+            <div class="card-footer">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
           </form>
 
         </div>

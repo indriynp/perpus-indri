@@ -6,6 +6,7 @@ use App\Models\Buku;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 
 class BukuController extends Controller
 {
@@ -45,8 +46,12 @@ class BukuController extends Controller
             'id_penerbit' => 'required',
             'id_kategori' => 'required',
             'sinopsis' => 'required',
-            'sampul' => 'required',
+            'sampul' => 'image|file',
         ]);
+
+         if($request->file('sampul')){
+            $validateData['sampul'] = $request->file('sampul')->store('buku-img');
+        }
 
         Buku::create([
             'nama' => $request->nama,
