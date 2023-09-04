@@ -14,9 +14,10 @@ class BukuController extends Controller
      */
     public function index()
     {
+        $allBuku = Buku::all();
+
         return view('pages.admin.buku.index', [
-            'title' => 'Buku',
-            'buku' => Buku::all(),
+            'allBuku' => $allBuku,
         ]);
     }
 
@@ -25,9 +26,10 @@ class BukuController extends Controller
      */
     public function create()
     {
+        $kategoris = Kategori::all();
+
         return view('pages.admin.buku.create', [
-            'title' => 'Tambah buku',
-            'kategori' => Kategori::all(),
+            'kategoris' => $kategoris
         ]);
     }
 
@@ -77,11 +79,11 @@ class BukuController extends Controller
     public function edit($id)
     {
         $item = Buku::findOrFail($id);
-        $kategori = Buku::findOrFail($id);
+        $kategoris = Kategori::all();
 
         return view('pages.admin.buku.edit', [
-            'item' => $item ,
-            'kategori' => $kategori,
+            'item' => $item,
+            'kategoris' => $kategoris,
         ]);
     }
 

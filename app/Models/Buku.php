@@ -11,7 +11,8 @@ class Buku extends Model
     use HasFactory;
     protected $guarded = [];
 
-     public function kategori(){
-        return $this->belongsTo(Kategori::class, 'id');
+    public function kategori()
+    {
+        return $this->belongsTo(Kategori::class, 'id_kategori', 'id');
     }
 }
