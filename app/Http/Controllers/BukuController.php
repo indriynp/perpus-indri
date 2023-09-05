@@ -49,7 +49,7 @@ class BukuController extends Controller
             'sampul' => 'image|file',
         ]);
 
-         if($request->file('sampul')){
+        if ($request->file('sampul')) {
             $validateData['sampul'] = $request->file('sampul')->store('buku-img');
         }
 
@@ -70,11 +70,12 @@ class BukuController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Buku $buku)
+    public function show($id)
     {
+        $data = Buku::findOrFail($id);
+
         return view('pages.admin.buku.show', [
-            'title' => 'Show',
-            'buku' => $buku,
+            'data' => $data
         ]);
     }
 
@@ -108,7 +109,7 @@ class BukuController extends Controller
         ]);
 
 
-        if($request->file('sampul')){
+        if ($request->file('sampul')) {
             if ($request->oldImage) {
                 Storage::delete($request->oldImage);
             }

@@ -23,31 +23,31 @@
             <table class="table table-bordered">
                 <tr>
                     <th style="width: 180px">Nama</th>
-                    <td>{{ $buku->nama }}</td>
+                    <td>{{ $data->nama }}</td>
                 </tr>
                 <tr>
                     <th style="width: 180px">Tahun Terbit</th>
-                    <td>{{ $buku->tahun_terbit }}</td>
+                    <td>{{ $data->tahun_terbit }}</td>
                 </tr>
                 <tr>
                     <th style="width: 180px">Penulis</th>
-                    <td>{{ $buku->id_penulis }}</td>
+                    <td>{{ $data->id_penulis }}</td>
                 </tr>
                 <tr>
                     <th style="width: 180px">Penerbit</th>
-                    <td>{{ $buku->id_penerbit }}</td>
+                    <td>{{ $data->id_penerbit }}</td>
                 </tr>
                 <tr>
                     <th style="width: 180px">Kategori</th>
-                    <td>{{ $buku->kategori }}</td>
+                    <td>{{ $data->id_kategori }}</td>
                 </tr>
                 <tr>
                     <th style="width: 180px">Sinopsis</th>
-                    <td>{{ $buku->sinopsis }}</td>
+                    <td>{{ $data->sinopsis }}</td>
                 </tr>
                 <tr>
                     <th style="width: 180px">Sampul</th>
-                    <td><img src="/sampul/{{ $buku->sampul }}" width="100px"></td>
+                    <td><img src="/sampul/{{ $data->sampul }}" width="100px"></td>
                 </tr>
             </table>
         </div>
