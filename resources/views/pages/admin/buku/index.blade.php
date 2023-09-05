@@ -54,8 +54,7 @@
                         <td style="text-align:center">{{ $buku->id_penerbit }}</td>
                         <td style="text-align:center">{{ @$buku->kategori->nama }}</td>
                         <td style="text-align:center">{{ $buku->sinopsis }}</td>
-                        <td style="text-align:center">{{ $buku->sampul }}
-                        <img src="{{ asset('storage/'.$buku->sampul) }}" class="img-fluid mt-3"></td>
+                        <td style="text-align:center"><img src="/sampul/{{ $buku->sampul }}" width="100px"></td>
                         <td style="text-align:center">
 
                             <a href="{{ route('buku_show', $buku->id) }}" class="btn btn-info">

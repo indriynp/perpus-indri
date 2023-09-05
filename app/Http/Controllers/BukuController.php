@@ -107,6 +107,14 @@ class BukuController extends Controller
             'sampul' => 'required',
         ]);
 
+
+        if($request->file('sampul')){
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validateData['sampul'] = $request->file('sampul')->store('buku-img');
+        }
+
         $buku->update([
             'nama' => $request->nama,
             'tahun_terbit' => $request->tahun_terbit,
@@ -125,6 +133,9 @@ class BukuController extends Controller
      */
     public function destroy(Buku $buku)
     {
+        if ($buku->sampul) {
+            Storage::delete($buku->sampul);
+        }
         Buku::destroy($buku->id);
 
         return redirect('/buku');
