@@ -14,6 +14,7 @@
 
   <title>Perpus</title>
 
+
   @include('includes.style')
 
 
@@ -45,6 +46,8 @@
 
 
     <!-- /.control-sidebar -->
+     @include('sweetalert::alert')
+
   </div>
 </body>
 </html>

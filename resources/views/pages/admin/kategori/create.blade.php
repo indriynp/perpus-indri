@@ -17,12 +17,16 @@
               @csrf
               <div class="form-group">
                 <label for="nama">Nama</label>
-                <input type="text" class="form-control" id="nama" name="nama" placeholder="Enter nama">
-              </div> 
-          </div>
-          <div class="card-footer">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
+                <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" value="{{ old('nama') }}" placeholder="Enter nama" >
+                @error('nama')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+              </div>
+            </div>
+            <div class="card-footer">
+              <a href="{{ route('kategori_index') }}" class="btn btn-info">Back</a>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
           </form>
         </div>
         <!-- /.card -->

@@ -48,10 +48,11 @@
                 <label for="sampul">Sampul</label>
                 <input type="file" class="form-control" id="sampul" name="sampul" value="{{ $item->sampul }}">
               </div>
-          </div>
-          <div class="card-footer">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
+            </div>
+            <div class="card-footer">
+              <a href="{{ route('buku_index') }}" class="btn btn-info">Back</a>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
           </form>
 
         </div>

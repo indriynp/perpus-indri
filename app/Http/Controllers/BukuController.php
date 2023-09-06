@@ -65,7 +65,7 @@ class BukuController extends Controller
 
         ]);
 
-        return Redirect::route('buku_index');
+        return Redirect::route('buku_index')->with('toast_success','Data Berhasil di Tambahkan!');
     }
 
     /**
@@ -109,13 +109,10 @@ class BukuController extends Controller
             'sampul' => 'required',
         ]);
 
+        $file = $request->file('sampul');
+        $path = time() . '_' . $request->name . '.' . $file->getClientOriginalExtension();
 
-        if ($request->file('sampul')) {
-            if ($request->oldImage) {
-                Storage::delete($request->oldImage);
-            }
-            $validateData['sampul'] = $request->file('sampul')->store('buku-img');
-        }
+        Storage::disk('local')->put('public/' . $path, file_get_contents($file));
 
         $buku->update([
             'nama' => $request->nama,
@@ -124,10 +121,10 @@ class BukuController extends Controller
             'id_penerbit' => $request->id_penerbit,
             'id_kategori' => $request->id_kategori,
             'sinopsis' => $request->sinopsis,
-            'sampul' => $request->sampul,
+            'sampul' => $path,
         ]);
 
-        return redirect()->route('buku_index');
+        return redirect()->route('buku_index')->with('toast_success','Data Berhasil di Rubah!');
     }
 
     /**
@@ -140,6 +137,6 @@ class BukuController extends Controller
         }
         Buku::destroy($buku->id);
 
-        return redirect('/buku');
+        return redirect('/buku')->with('toast_success','Data Berhasil di Hapus!');
     }
 }

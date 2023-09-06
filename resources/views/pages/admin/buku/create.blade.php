@@ -17,19 +17,31 @@
               @csrf
               <div class="form-group">
                 <label for="nama">Nama</label>
-                <input type="text" class="form-control" id="nama" name="nama" placeholder="Enter nama">
+                <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" value="{{ old('nama') }}" placeholder="Enter nama" >
+                @error('nama')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
               </div>
               <div class="form-group">
                 <label for="tahun_terbit">Tahun Terbit</label>
-                <input type="text" class="form-control" id="tahun_terbit" name="tahun_terbit" placeholder="Enter tahun terbit">
+                <input type="text" class="form-control  @error('tahun_terbit') is-invalid @enderror" id="tahun_terbit" name="tahun_terbit" value="{{ old('tahun_terbit') }}" placeholder="Enter tahun terbit">
+                @error('tahun_terbit')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
               </div>
               <div class="form-group">
                 <label for="id_penulis">Penulis</label>
-                <input type="text" class="form-control" id="id_penulis" name="id_penulis" placeholder="Enter penulis">
+                <input type="text" class="form-control @error('id_penulis') is-invalid @enderror" id="id_penulis" name="id_penulis" value="{{ old('id_penulis') }}" placeholder="Enter penulis">
+                @error('id_penulis')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
               </div>
               <div class="form-group">
                 <label for="id_penerbit">Penerbit</label>
-                <input type="text" class="form-control" id="id_penerbit" name="id_penerbit" placeholder="Enter penerbit">
+                <input type="text" class="form-control @error('id_penerbit') is-invalid @enderror" id="id_penerbit" name="id_penerbit" value="{{ old('id_penerbit') }}" placeholder="Enter penerbit">
+                @error('id_penerbit')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
               </div>
               <div class="form-group">
                 <label for="id_kategori">Kategori</label>
@@ -42,15 +54,23 @@
               </div>
               <div class="form-group">
                 <label for="sinopsis">Sinopsis</label>
-                <input type="text" class="form-control" id="sinopsis" name="sinopsis" placeholder="Enter sinopsis">
+                <input type="text" class="form-control @error('sinopsis') is-invalid @enderror" id="sinopsis" name="sinopsis" value="{{ old('sinopsis') }}" placeholder="Enter sinopsis">
+                @error('sinopsis')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
               </div>
               <div class="form-group">
                 <label for="sampul">Sampul</label>
-                <input type="file" class="form-control" id="sampul" name="sampul">
+                <input type="file" class="form-control @error('sampul') is-invalid @enderror" id="sampul" name="sampul" value="{{ old('sampul') }}">
+                @error('sampul')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
               </div>
             </div>
             <div class="card-footer">
+              <a href="{{ route('buku_index') }}" class="btn btn-info">Back</a>
               <button type="submit" class="btn btn-primary">Submit</button>
+              
             </div>
           </form>
 

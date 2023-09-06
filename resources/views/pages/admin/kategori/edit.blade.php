@@ -20,10 +20,11 @@
                 <input type="text" class="form-control" id="nama" name="nama" placeholder="Enter nama" value="{{ $item->nama }}">
               </div>
 
-          </div>
-          <div class="card-footer">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
+            </div>
+            <div class="card-footer">
+              <a href="{{ route('kategori_index') }}" class="btn btn-info">Back</a>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
           </form>
 
         </div>
