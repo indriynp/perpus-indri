@@ -49,9 +49,10 @@ class BukuController extends Controller
             'sampul' => 'image|file',
         ]);
 
-        if ($request->file('sampul')) {
-            $validateData['sampul'] = $request->file('sampul')->store('buku-img');
-        }
+        $file = $request->file('sampul');
+        $path = time() . '_' . $request->name . '.' . $file->getClientOriginalExtension();
+
+        Storage::disk('local')->put('public/' . $path, file_get_contents($file));
 
         Buku::create([
             'nama' => $request->nama,
@@ -60,7 +61,7 @@ class BukuController extends Controller
             'id_penerbit' => $request->id_penerbit,
             'id_kategori' => $request->id_kategori,
             'sinopsis' => $request->sinopsis,
-            'sampul' => $request->sampul,
+            'sampul' => $path
 
         ]);
 
