@@ -67,7 +67,7 @@
 
                             <form action="{{ route('buku_destroy', $buku->id) }}" method="post" class="d-inline">
                                 @csrf
-                                <button type="submit" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?');" class="btn btn-danger">Delete</button>
+                                <button type="submit" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?');" class="btn btn-danger bi bi-trash"></button>
                             </form>
                         </td>
                     </tr>

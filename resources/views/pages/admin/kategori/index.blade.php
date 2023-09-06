@@ -46,7 +46,9 @@
                         <td style="text-align:center">
                             <for action="" method="POST">
 
-                                <a class="btn btn-info" href="">Show</a>
+                                <a href="#" class="btn btn-info">
+                                <i class="fa-regular fa-eye"></i>
+                            </a>
 
                                 <a href="{{ route('kategori_edit', $k->id) }}" class="btn btn-warning">
                                     <i class="bi bi-pencil"></i>
@@ -54,7 +56,7 @@
                                 
                                 <form action="{{ route('kategori_destroy', $k->id) }}" method="post" class="d-inline">
                                 @csrf
-                                <button type="submit" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?');" class="btn btn-danger">Delete</button>
+                                <button type="submit" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?');" class="btn btn-danger bi bi-trash"></button>
                             </td>
                         </tr>
                     </tbody>

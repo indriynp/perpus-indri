@@ -39,7 +39,7 @@
                 </tr>
                 <tr>
                     <th style="width: 180px">Kategori</th>
-                    <td>{{ $data->id_kategori }}</td>
+                    <td>{{ $data->kategori->nama }}</td>
                 </tr>
                 <tr>
                     <th style="width: 180px">Sinopsis</th>
