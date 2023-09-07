@@ -56,6 +56,12 @@
               </a>
           </li>
           <li class="nav-item">
+                <a href="{{ url('/peminjaman') }}" class="nav-link">
+                  <i class="fas fa-fw fa-hand-holding-dollar"></i>
+                  <p>Peminjaman</p>
+              </a>
+          </li>
+          <li class="nav-item">
                 <a href="{{ url('/actionlogout') }}" class="nav-link">
                   <i class="fas fa-fw fa-arrow-left"></i>
                   <p>Logout</p>

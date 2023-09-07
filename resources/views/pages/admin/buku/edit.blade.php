@@ -17,7 +17,12 @@
               @csrf
               <div class="form-group">
                 <label for="nama">Nama</label>
-                <input type="text" class="form-control" id="nama" name="nama" placeholder="Enter nama" value="{{ $item->nama }}">
+                <select class="form-control" id="nama" name="nama" class="form-control">
+                  <option value="">Pilih Buku</option>
+                  @foreach($peminjaman as $pinjam)
+                  <option value="{{ $pinjam->id_buku }}" {{ $pinjam->id_buku == $item->nama ? 'selected' : '' }}>{{ $pinjam->id_buku }}</option>
+                  @endforeach
+                </select>
               </div>
               <div class="form-group">
                 <label for="tahun_terbit">Tahun Terbit</label>

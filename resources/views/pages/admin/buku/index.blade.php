@@ -34,7 +34,7 @@
                 <thead>
                     <tr>
                         <th style="text-align:center;">No</th>
-                        <th style="text-align:center;">Nama</th>
+                        <th style="text-align:center;">Nama Buku</th>
                         <th style="text-align:center;">Tahun Terbit</th>
                         <th style="text-align:center;">Penulis</th>
                         <th style="text-align:center;">Penerbit</th>
@@ -48,7 +48,7 @@
                 <tbody>
                     <tr>
                         <td style="text-align:center">{{ $loop->iteration }}</td>
-                        <td style="text-align:center">{{ $buku->nama }}</td>
+                        <td style="text-align:center">{{ @$buku->peminjaman->id_buku }}</td>
                         <td style="text-align:center">{{ $buku->tahun_terbit }}</td>
                         <td style="text-align:center" style="text-align:center">{{ $buku->id_penulis }}</td>
                         <td style="text-align:center">{{ $buku->id_penerbit }}</td>

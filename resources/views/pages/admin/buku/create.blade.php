@@ -16,11 +16,13 @@
             <form action="{{ route('buku_store') }}" method="POST" enctype="multipart/form-data">
               @csrf
               <div class="form-group">
-                <label for="nama">Nama</label>
-                <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" value="{{ old('nama') }}" placeholder="Enter nama" >
-                @error('nama')
-                <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
+                <label for="nama">Nama Buku</label>
+                <select class="form-control" id="nama" name="nama">
+                  <option selected>Pilih Buku</option>
+                  @foreach($peminjaman as $pinjam)
+                  <option value="{{ $pinjam->id_buku }}">{{ $pinjam->id_buku }}</option>
+                  @endforeach
+                </select>
               </div>
               <div class="form-group">
                 <label for="tahun_terbit">Tahun Terbit</label>

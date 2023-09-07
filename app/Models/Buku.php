@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Kategori;
+use App\Models\Peminjaman;
 
 class Buku extends Model
 {
@@ -14,5 +15,9 @@ class Buku extends Model
     public function kategori()
     {
         return $this->belongsTo(Kategori::class, 'id_kategori', 'id');
+    }
+    public function peminjaman()
+    {
+        return $this->belongsTo(Peminjaman::class, 'id_buku', 'id');
     }
 }
