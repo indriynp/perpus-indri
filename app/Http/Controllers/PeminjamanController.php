@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Peminjaman;
+use App\Models\Buku;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -13,9 +14,10 @@ class PeminjamanController extends Controller
      */
     public function index()
     {
-       return view('pages.admin.peminjaman.index', [
-            'title' => 'Peminjaman',
-            'peminjaman' => Peminjaman::all(),
+       $peminjaman = Peminjaman::all();
+
+        return view('pages.admin.peminjaman.index', [
+            'peminjaman' => $peminjaman,
         ]);
     }
 
@@ -24,8 +26,10 @@ class PeminjamanController extends Controller
      */
     public function create()
     {
-         return view('pages.admin.peminjaman.create', [
-            'title' => 'Tambah peminjaman',
+        $bukus = Buku::all();
+
+        return view('pages.admin.peminjaman.create', [
+            'bukus' => $bukus,
         ]);
     }
 
@@ -74,9 +78,11 @@ class PeminjamanController extends Controller
     public function edit($id)
     {
         $item = Peminjaman::findOrFail($id);
+        $bukus = Buku::all();
 
          return view('pages.admin.peminjaman.edit', [
-            'item' => $item
+            'item' => $item,
+            'bukus' => $bukus,
         ]);
     }
 

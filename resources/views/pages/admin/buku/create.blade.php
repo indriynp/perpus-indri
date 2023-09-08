@@ -15,14 +15,12 @@
           <div class="card-body">
             <form action="{{ route('buku_store') }}" method="POST" enctype="multipart/form-data">
               @csrf
-              <div class="form-group">
+             <div class="form-group">
                 <label for="nama">Nama Buku</label>
-                <select class="form-control" id="nama" name="nama">
-                  <option selected>Pilih Buku</option>
-                  @foreach($peminjaman as $pinjam)
-                  <option value="{{ $pinjam->id_buku }}">{{ $pinjam->id_buku }}</option>
-                  @endforeach
-                </select>
+                <input type="text" class="form-control  @error('nama') is-invalid @enderror" id="nama" name="nama" value="{{ old('nama') }}" placeholder="Enter nama buku">
+                @error('nama')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
               </div>
               <div class="form-group">
                 <label for="tahun_terbit">Tahun Terbit</label>
@@ -58,6 +56,13 @@
                 <label for="sinopsis">Sinopsis</label>
                 <input type="text" class="form-control @error('sinopsis') is-invalid @enderror" id="sinopsis" name="sinopsis" value="{{ old('sinopsis') }}" placeholder="Enter sinopsis">
                 @error('sinopsis')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+              </div>
+              <div class="form-group">
+                <label for="jumlah">Jumlah</label>
+                <input type="text" class="form-control @error('jumlah') is-invalid @enderror" id="jumlah" name="jumlah" value="{{ old('jumlah') }}" placeholder="Enter penulis">
+                @error('jumlah')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>

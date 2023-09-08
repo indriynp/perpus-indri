@@ -17,7 +17,12 @@
               @csrf
               <div class="form-group">
                 <label for="id_buku">Nama Buku</label>
-                <input type="text" class="form-control" id="id_buku" name="id_buku" placeholder="Enter nama buku" value="{{ $item->id_buku }}">
+                <select class="form-control" id="id_buku" name="id_buku" class="form-control">
+                  <option value="">Pilih Nama Buku</option>
+                  @foreach($bukus as $buku)
+                  <option value="{{ $buku->id }}" {{ $buku->id == $item->id_buku ? 'selected' : '' }}>{{ $buku->nama }}</option>
+                  @endforeach
+                </select>
               </div>
               <div class="form-group">
                 <label for="id_anggota">Anggota</label>

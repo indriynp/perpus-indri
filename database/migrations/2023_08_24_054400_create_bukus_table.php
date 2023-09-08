@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('id_penerbit');
             $table->text('id_kategori');
             $table->string('sinopsis');
+            $table->string('jumlah');
             $table->string('sampul');
             $table->timestamps();
         });

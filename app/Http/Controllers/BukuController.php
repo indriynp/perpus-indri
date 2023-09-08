@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Buku;
 use App\Models\Kategori;
-use App\Models\Peminjaman;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
@@ -29,11 +28,9 @@ class BukuController extends Controller
     public function create()
     {
        $kategoris = Kategori::all();
-        $peminjaman = Peminjaman::all();
 
         return view('pages.admin.buku.create', [
             'kategoris' => $kategoris,
-            'peminjaman' => $peminjaman,
         ]);
     }
 
@@ -49,6 +46,7 @@ class BukuController extends Controller
             'id_penerbit' => 'required',
             'id_kategori' => 'required',
             'sinopsis' => 'required',
+            'jumlah' => 'required',
             'sampul' => 'image|file',
         ]);
 
@@ -64,6 +62,7 @@ class BukuController extends Controller
             'id_penerbit' => $request->id_penerbit,
             'id_kategori' => $request->id_kategori,
             'sinopsis' => $request->sinopsis,
+            'jumlah' => $request->jumlah,
             'sampul' => $path
 
         ]);
@@ -90,12 +89,10 @@ class BukuController extends Controller
     {
         $item = Buku::findOrFail($id);
         $kategoris = Kategori::all();
-        $peminjaman = Peminjaman::all();
 
         return view('pages.admin.buku.edit', [
             'item' => $item,
             'kategoris' => $kategoris,
-            'peminjaman' => $peminjaman,
         ]);
     }
 
@@ -111,6 +108,7 @@ class BukuController extends Controller
             'id_penerbit' => 'required',
             'id_kategori' => 'required',
             'sinopsis' => 'required',
+            'jumlah' => 'required',
             'sampul' => 'required',
         ]);
 
@@ -126,6 +124,7 @@ class BukuController extends Controller
             'id_penerbit' => $request->id_penerbit,
             'id_kategori' => $request->id_kategori,
             'sinopsis' => $request->sinopsis,
+            'jumlah' => $request->jumlah,
             'sampul' => $path,
         ]);
 

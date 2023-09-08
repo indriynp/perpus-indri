@@ -16,13 +16,8 @@
             <form action="{{ route('buku_update', $item->id) }}" method="POST" enctype="multipart/form-data">
               @csrf
               <div class="form-group">
-                <label for="nama">Nama</label>
-                <select class="form-control" id="nama" name="nama" class="form-control">
-                  <option value="">Pilih Buku</option>
-                  @foreach($peminjaman as $pinjam)
-                  <option value="{{ $pinjam->id_buku }}" {{ $pinjam->id_buku == $item->nama ? 'selected' : '' }}>{{ $pinjam->id_buku }}</option>
-                  @endforeach
-                </select>
+                <label for="nama">Nama Buku</label>
+                <input type="text" class="form-control" id="nama" name="nama" placeholder="Enter nama buku" value="{{ $item->nama }}">
               </div>
               <div class="form-group">
                 <label for="tahun_terbit">Tahun Terbit</label>
@@ -48,6 +43,10 @@
               <div class="form-group">
                 <label for="sinopsis">Sinopsis</label>
                 <input type="text" class="form-control" id="sinopsis" name="sinopsis" placeholder="Enter sinopsis" value="{{ $item->sinopsis }}">
+              </div>
+               <div class="form-group">
+                <label for="jumlah">Jumlah</label>
+                <input type="text" class="form-control" id="jumlah" name="jumlah" placeholder="Enter penerbit" value="{{ $item->jumlah }}">
               </div>
               <div class="form-group">
                 <label for="sampul">Sampul</label>
