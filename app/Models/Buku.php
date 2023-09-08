@@ -18,6 +18,6 @@ class Buku extends Model
     }
     public function peminjaman()
     {
-        return $this->belongsTo(Peminjaman::class, 'id_buku', 'id');
+        return $this->belongsTo(Peminjaman::class, 'nama', 'id');
     }
 }
