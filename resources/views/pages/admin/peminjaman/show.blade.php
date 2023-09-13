@@ -45,9 +45,12 @@
                     <th style="width: 180px">Status Peminjaman</th>
                     <td>{{ $data->id_status_peminjaman }}</td>
                 </tr>
+                <tr>
+                    <th style="width: 180px">Sampul</th>
+                    <td><img src="{{ asset('storage/'.$data->buku->sampul) }}" style="width: 150px;"></td>
+                </tr>
             </table>
         </div>
     </div>
-</div>
 </div>
 @endsection

@@ -46,7 +46,7 @@
                         <td style="text-align:center">
                             <for action="" method="POST">
 
-                                <a href="#" class="btn btn-info">
+                                <a href="{{ route('kategori_show', $k->id) }}" class="btn btn-info">
                                 <i class="fa-regular fa-eye"></i>
                             </a>
 

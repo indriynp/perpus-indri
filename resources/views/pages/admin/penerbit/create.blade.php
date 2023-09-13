@@ -13,11 +13,11 @@
           </div>
 
           <div class="card-body">
-            <form action="{{ route('penulis_store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('penerbit_store') }}" method="POST" enctype="multipart/form-data">
               @csrf
                 <div class="form-group">
-                <label for="nama">Nama Penulis</label>
-                <input type="text" class="form-control  @error('nama') is-invalid @enderror" id="nama" name="nama" value="{{ old('nama') }}" placeholder="Enter nama penulis">
+                <label for="nama">Nama Penerbit</label>
+                <input type="text" class="form-control  @error('nama') is-invalid @enderror" id="nama" name="nama" value="{{ old('nama') }}" placeholder="Enter nama penerbit">
                 @error('nama')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -52,7 +52,7 @@
               </div>
             </div>
             <div class="card-footer">
-              <a href="{{ route('penulis_index') }}" class="btn btn-info">Back</a>
+              <a href="{{ route('penerbit_index') }}" class="btn btn-info">Back</a>
               <button type="submit" class="btn btn-primary">Submit</button>
               
             </div>

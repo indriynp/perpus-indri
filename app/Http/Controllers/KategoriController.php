@@ -51,9 +51,13 @@ class KategoriController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Kategori $kategori)
+    public function show($id)
     {
-        //
+        $data = Kategori::findOrFail($id);
+
+        return view('pages.admin.kategori.show', [
+            'data' => $data
+        ]);
     }
 
     /**

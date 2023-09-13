@@ -10,6 +10,7 @@ use App\Http\Controllers\BukuController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\PenulisController;
+use App\Http\Controllers\PenerbitController;
 
 
 /*
@@ -58,8 +59,10 @@ Route::post('/buku/destroy/{buku}', [BukuController::class, 'destroy'])->name('b
 Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori_index');
 Route::get('/kategori/create', [KategoriController::class, 'create'])->name('kategori_create');
 Route::post('/kategori/store', [KategoriController::class, 'store'])->name('kategori_store');
+Route::get('/kategori/show', [KategoriController::class, 'show'])->name('Kategori_show');
 
 Route::get('/kategori/edit/{id}', [KategoriController::class, 'edit'])->name('kategori_edit');
+Route::get('/kategori/show/{id}', [KategoriController::class, 'show'])->name('kategori_show');
 Route::post('/kategori/update/{kategori}', [KategoriController::class, 'update'])->name('kategori_update');
 Route::post('/kategori/destroy/{kategori}', [KategoriController::class, 'destroy'])->name('kategori_destroy');
 
@@ -88,6 +91,15 @@ Route::post('/penulis/update/{penulis}', [PenulisController::class, 'update'])->
 Route::post('/penulis/destroy/{penulis}', [PenulisController::class, 'destroy'])->name('penulis_destroy');
 
 //PENERBIT
+Route::get('/penerbit', [PenerbitController::class, 'index'])->name('penerbit_index');
+Route::get('/penerbit/create', [PenerbitController::class, 'create'])->name('penerbit_create');
+Route::post('/penerbit/store', [PenerbitController::class, 'store'])->name('penerbit_store');
+Route::get('/penerbit/show', [PenerbitController::class, 'show'])->name('penerbit_show');
+
+Route::get('/penerbit/edit/{id}', [PenerbitController::class, 'edit'])->name('penerbit_edit');
+Route::get('/penerbit/show/{id}', [PenerbitController::class, 'show'])->name('penerbit_show');
+Route::post('/penerbit/update/{penerbit}', [PenerbitController::class, 'update'])->name('penerbit_update');
+Route::post('/penerbit/destroy/{penerbit}', [PenerbitController::class, 'destroy'])->name('penerbit_destroy');
 
 
 Route::middleware(['auth', 'admin'])->group(function () {

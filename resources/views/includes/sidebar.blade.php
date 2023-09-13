@@ -63,7 +63,7 @@
           </li>
           <li class="nav-item">
                 <a href="{{ url('/actionlogout') }}" class="nav-link">
-                  <i class="fas fa-fw fa-arrow-left"></i>
+                  <i class="bi bi-box-arrow-in-left"></i>
                   <p>Logout</p>
               </a>
           </li>

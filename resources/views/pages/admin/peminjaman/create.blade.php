@@ -20,7 +20,7 @@
                 <select class="form-control" id="id_buku" name="id_buku">
                   <option selected>Pilih Nama Buku</option>
                   @foreach($bukus as $buku)
-                  <option value="{{ $buku->nama }}">{{ $buku->nama }}</option>
+                  <option value="{{ $buku->id }}">{{ $buku->nama }}</option>
                   @endforeach
                 </select>
               </div>

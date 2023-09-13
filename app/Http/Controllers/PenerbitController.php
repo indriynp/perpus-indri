@@ -2,22 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Penulis;
-use App\Models\Buku;
+use App\Models\Penerbit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
-class PenulisController extends Controller
+class PenerbitController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $penulis = Penulis::all();
+        $penerbit = Penerbit::all();
 
-        return view('pages.admin.penulis.index', [
-            'penulis' => $penulis,
+        return view('pages.admin.penerbit.index', [
+            'penerbit' => $penerbit,
         ]);
     }
 
@@ -26,8 +25,8 @@ class PenulisController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.penulis.create', [
-            'title' => 'Tambah penulis',
+        return view('pages.admin.penerbit.create', [
+            'title' => 'Tambah penerbit',
         ]);
     }
 
@@ -36,24 +35,24 @@ class PenulisController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+         $request->validate([
             'nama' => 'required',
             'alamat' => 'required',
             'telepon' => 'required',
             'email' => 'required',
             'jumlah' => 'required',
+
         ]);
 
-        Penulis::create([
+        Penerbit::create([
             'nama' => $request->nama,
             'alamat' => $request->alamat,
             'telepon' => $request->telepon,
             'email' => $request->email,
             'jumlah' => $request->jumlah,
-
         ]);
 
-        return Redirect::route('penulis_index')->with('toast_success','Data Berhasil di Tambahkan!');
+        return Redirect::route('penerbit_index')->with('toast_success','Data Berhasil di Tambahkan!');
     }
 
     /**
@@ -61,9 +60,9 @@ class PenulisController extends Controller
      */
     public function show($id)
     {
-        $data = Penulis::findOrFail($id);
+        $data = Penerbit::findOrFail($id);
 
-        return view('pages.admin.penulis.show', [
+        return view('pages.admin.penerbit.show', [
             'data' => $data
         ]);
     }
@@ -73,9 +72,9 @@ class PenulisController extends Controller
      */
     public function edit($id)
     {
-        $item = Penulis::findOrFail($id);
+        $item = Penerbit::findOrFail($id);
 
-         return view('pages.admin.penulis.edit', [
+         return view('pages.admin.penerbit.edit', [
             'item' => $item,
         ]);
     }
@@ -83,7 +82,7 @@ class PenulisController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Penulis $penulis)
+    public function update(Request $request, Penerbit $penerbit)
     {
         $request->validate([
             'nama' => 'required',
@@ -93,7 +92,7 @@ class PenulisController extends Controller
             'jumlah' => 'required',
         ]);
 
-        $penulis->update([
+        $penerbit->update([
             'nama' => $request->nama,
             'alamat' => $request->alamat,
             'telepon' => $request->telepon,
@@ -102,16 +101,16 @@ class PenulisController extends Controller
 
         ]);
 
-        return Redirect::route('penulis_index')->with('toast_success','Data Berhasil di Rubah!');
+        return Redirect::route('penerbit_index')->with('toast_success','Data Berhasil di Rubah!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Penulis $penulis)
+    public function destroy(Penerbit $penerbit)
     {
-       Penulis::destroy($penulis->id);
+         Penerbit::destroy($penerbit->id);
 
-        return redirect('/penulis')->with('toast_success','Data Berhasil di Hapus!');
+        return redirect('/penerbit')->with('toast_success','Data Berhasil di Hapus!');
     }
 }
