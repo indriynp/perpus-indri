@@ -40,7 +40,6 @@ class PenerbitController extends Controller
             'alamat' => 'required',
             'telepon' => 'required',
             'email' => 'required',
-            'jumlah' => 'required',
 
         ]);
 
@@ -49,7 +48,6 @@ class PenerbitController extends Controller
             'alamat' => $request->alamat,
             'telepon' => $request->telepon,
             'email' => $request->email,
-            'jumlah' => $request->jumlah,
         ]);
 
         return Redirect::route('penerbit_index')->with('toast_success','Data Berhasil di Tambahkan!');
@@ -89,7 +87,6 @@ class PenerbitController extends Controller
             'alamat' => 'required',
             'telepon' => 'required',
             'email' => 'required',
-            'jumlah' => 'required',
         ]);
 
         $penerbit->update([
@@ -97,7 +94,6 @@ class PenerbitController extends Controller
             'alamat' => $request->alamat,
             'telepon' => $request->telepon,
             'email' => $request->email,
-            'jumlah' => $request->jumlah,
 
         ]);
 

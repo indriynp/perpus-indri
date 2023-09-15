@@ -31,10 +31,6 @@
                 <label for="email">Email</label>
                 <input type="text" class="form-control" id="email" name="email" placeholder="Enter email" value="{{ $item->email }}">
               </div>
-              <div class="form-group">
-                <label for="jumlah">Jumlah Buku</label>
-                <input type="text" class="form-control" id="jumlah" name="jumlah" placeholder="Enter jumlah" value="{{ $item->jumlah }}">
-              </div>
             </div>
             <div class="card-footer">
               <a href="{{ route('penerbit_index') }}" class="btn btn-info">Back</a>

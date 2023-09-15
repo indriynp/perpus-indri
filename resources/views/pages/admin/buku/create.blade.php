@@ -15,7 +15,7 @@
           <div class="card-body">
             <form action="{{ route('buku_store') }}" method="POST" enctype="multipart/form-data">
               @csrf
-             <div class="form-group">
+              <div class="form-group">
                 <label for="nama">Nama Buku</label>
                 <input type="text" class="form-control  @error('nama') is-invalid @enderror" id="nama" name="nama" value="{{ old('nama') }}" placeholder="Enter nama buku">
                 @error('nama')
@@ -32,7 +32,7 @@
               <div class="form-group">
                 <label for="id_penulis">Penulis</label>
                 <select class="form-control" id="id_penulis" name="id_penulis">
-                  <option selected>Penulis</option>
+                  <option selected>Nama Penulis</option>
                   @foreach($penulis as $pen)
                   <option value="{{ $pen->id }}">{{ $pen->nama }}</option>
                   @endforeach
@@ -58,7 +58,7 @@
               </div>
               <div class="form-group">
                 <label for="sinopsis">Sinopsis</label>
-                <input type="text" class="form-control @error('sinopsis') is-invalid @enderror" id="sinopsis" name="sinopsis" value="{{ old('sinopsis') }}" placeholder="Enter sinopsis">
+                <textarea class="form-control  @error('sinopsis') is-invalid @enderror" style="height:150px" name="sinopsis" value="{{ old('sinopsis') }}" placeholder=""></textarea>
                 @error('sinopsis')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror

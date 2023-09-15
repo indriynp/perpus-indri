@@ -39,6 +39,9 @@ Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('acti
 Route::get('register', [RegisterController::class, 'register'])->name('register');
 Route::post('register/action', [RegisterController::class, 'actionregister'])->name('actionregister');
 
+//dashboard
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

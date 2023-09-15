@@ -52,7 +52,7 @@
               </div>
               <div class="form-group">
                 <label for="sinopsis">Sinopsis</label>
-                <input type="text" class="form-control" id="sinopsis" name="sinopsis" placeholder="Enter sinopsis" value="{{ $item->sinopsis }}">
+                <textarea class="form-control" style="height:150px" id="sinopsis" name="sinopsis">{{ @$item->sinopsis }}</textarea>
               </div>
                <div class="form-group">
                 <label for="jumlah">Jumlah</label>
@@ -61,6 +61,7 @@
               <div class="form-group">
                 <label for="sampul">Sampul</label>
                 <input type="file" class="form-control" id="sampul" name="sampul" value="{{ $item->sampul }}">
+                <img src="{{ asset('storage/'.$item->sampul) }}" style="width: 115px;">
               </div>
             </div>
             <div class="card-footer">

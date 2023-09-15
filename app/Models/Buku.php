@@ -30,4 +30,10 @@ class Buku extends Model
     {
         return $this->belongsTo(Penulis::class, 'id_penulis', 'id');
     }
+    public function getJumlahBuku()
+    {
+        $query = Buku::query();
+
+        return $query->count();
+    }
 }

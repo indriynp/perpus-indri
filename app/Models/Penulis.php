@@ -15,4 +15,17 @@ class Penulis extends Model
     {
         return $this->hasMany(Buku::class, 'id_penulis', 'id');
     }
+    public function getDaftarBuku()
+    {
+       return Buku::where('id_penulis', '=', $this->id)
+            ->get();
+    }
+    public function getJumlahBuku()
+    {
+        $query = Buku::query();
+
+        $query->where('id_penulis', '=', $this->id);
+
+        return $query->count();
+    }
 }

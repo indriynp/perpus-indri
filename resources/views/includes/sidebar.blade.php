@@ -14,7 +14,7 @@
                 <img src="{{ url('adminlte/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block">{{ auth()->user()->name }}</a>
             </div>
         </div>
 
@@ -22,9 +22,9 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-                         with font-awesome or any other icon font library -->
-                         <li class="nav-item menu-open">
-                            <a href="{{ url('/home') }}" class="nav-link active">
+                           with font-awesome or any other icon font library -->
+                           <li class="nav-item menu-open">
+                            <a href="{{ url('/dashboard') }}" class="nav-link active">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -34,7 +34,7 @@
                         <li class="nav-item">
                             <a href="{{ url('/buku') }}" class="nav-link">
                               <i class="fas fa-fw fa-book"></i>
-                              <p>Buku</p>
+                              <p>Data Buku</p>
                           </a>
                       </li>
                       <li class="nav-item">
@@ -56,19 +56,19 @@
               </a>
           </li>
           <li class="nav-item">
-                <a href="{{ url('/peminjaman') }}" class="nav-link">
-                  <i class="fas fa-fw fa-hand-holding-dollar"></i>
-                  <p>Peminjaman</p>
-              </a>
-          </li>
-          <li class="nav-item">
-                <a href="{{ url('/actionlogout') }}" class="nav-link">
-                  <i class="bi bi-box-arrow-in-left"></i>
-                  <p>Logout</p>
-              </a>
-          </li>
-      </ul>
-  </nav>
+            <a href="{{ url('/peminjaman') }}" class="nav-link">
+              <i class="fas fa-fw fa-hand-holding-dollar"></i>
+              <p>Peminjaman</p>
+          </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{ url('/actionlogout') }}" class="nav-link">
+          <i class="bi bi-box-arrow-in-left"></i>
+          <p>Logout</p>
+      </a>
+  </li>
+</ul>
+</nav>
 </div>
 </aside>
 

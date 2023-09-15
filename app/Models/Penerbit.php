@@ -15,4 +15,17 @@ class Penerbit extends Model
     {
         return $this->hasMany(Buku::class, 'id_penerbit', 'id');
     }
+    public function getDaftarBuku()
+    {
+       return Buku::where('id_penerbit', '=', $this->id)
+            ->get();
+    }
+    public function getJumlahBuku()
+    {
+        $query = Buku::query();
+
+        $query->where('id_penerbit', '=', $this->id);
+
+        return $query->count();
+    }
 }

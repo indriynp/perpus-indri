@@ -41,7 +41,6 @@ class PenulisController extends Controller
             'alamat' => 'required',
             'telepon' => 'required',
             'email' => 'required',
-            'jumlah' => 'required',
         ]);
 
         Penulis::create([
@@ -49,7 +48,6 @@ class PenulisController extends Controller
             'alamat' => $request->alamat,
             'telepon' => $request->telepon,
             'email' => $request->email,
-            'jumlah' => $request->jumlah,
 
         ]);
 
@@ -90,7 +88,6 @@ class PenulisController extends Controller
             'alamat' => 'required',
             'telepon' => 'required',
             'email' => 'required',
-            'jumlah' => 'required',
         ]);
 
         $penulis->update([
@@ -98,7 +95,6 @@ class PenulisController extends Controller
             'alamat' => $request->alamat,
             'telepon' => $request->telepon,
             'email' => $request->email,
-            'jumlah' => $request->jumlah,
 
         ]);
 

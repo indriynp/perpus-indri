@@ -57,8 +57,8 @@
                     <td style="text-align:center;"><?= $no; ?></td>
                     <td style="text-align:center;"><?= $buku->nama; ?></td>
                     <td style="text-align:center;"><?= $buku->tahun_terbit; ?></td>
-                    <td style="text-align:center;"><?= $buku->id_penulis; ?></td>
-                    <td style="text-align:center;"><?= $buku->id_penerbit; ?></td>
+                    <td style="text-align:center;"><?= $buku->penulis->nama; ?></td>
+                    <td style="text-align:center;"><?= $buku->penerbit->nama; ?></td>
                     <td style="text-align:center;"><?= $buku->kategori->nama; ?></td>
                     <td style="text-align:center;"><?= $buku->sinopsis; ?></td>
                      <td style="text-align:center"><img src="{{ asset('storage/'.$buku->sampul) }}" style="width: 150px;"></td>

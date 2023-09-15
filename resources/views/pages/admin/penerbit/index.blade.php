@@ -50,7 +50,7 @@
                         <td style="text-align:center">{{ $terbit->alamat }}</td>
                         <td style="text-align:center">{{ $terbit->telepon }}</td>
                         <td style="text-align:center">{{ $terbit->email }}</td>
-                        <td style="text-align:center">{{ $terbit->jumlah }}</td>
+                        <td style="text-align:center">{{ $terbit->getJumlahBuku() }}</td>
                         <td style="text-align:center">
 
                             <a href="{{ route('penerbit_show', $terbit->id) }}" class="btn btn-info">

@@ -12,7 +12,7 @@
   <!-- My Style -->
   <link rel="stylesheet" href="{{url('/css/style.css')}}">
 
-  <title>Perpus</title>
+  <title>Perpus Indri</title>
 
 
   @include('includes.style')
