@@ -70,6 +70,20 @@
     <a href="{{ route('kategori_index') }}" target="_blank" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
 </div>
 </div>
+<div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-secondary">
+          <div class="inner">
+            <h3>{{ $peminjaman }}</h3>
+            <p>Jumlah Peminjaman</p>
+        </div>
+
+        <div class="icon">
+            <i class="nav-icon fas fa-hand-holding-dollar"></i>
+        </div>
+        <a href="{{ route('peminjaman_index') }}" target="_blank" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+    </div>
+</div>
 </div>
 </div>
 </div>
