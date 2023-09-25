@@ -24,12 +24,27 @@
     @endif
 
     <div class="card-body">
+        <div class="col-md-6">
+            <label>Nama Penulis / Email</label>
+         <form method="get" action="{{ route('penulis_search') }}">
+            <div class="input-group">
+                <input type="search" name="search" class="form-control"  placeholder="Search Penulis..">
+                <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+            </div>
+        </form>
+    </div>
+</div>
+
+    <div class="card-body">
         <div style="margin-bottom: 20px">
             <a href="{{ route('penulis_create') }}" class="btn btn-primary btn-flat">
                 <i class="fa fa-plus-circle"></i> Tambah Data
             </a>
             <a href="{{ url('export_data') }}" class="btn btn-success btn-flat">
                 <i class="fa fa-file-excel"></i> Export Excel
+            </a>
+            <a href="{{ url('penulis-pdf') }}" class="btn btn-danger btn-flat">
+                <i class="fa fa-file-pdf"></i> Export PDF
             </a>
         </div>
         <div style="overflow: auto">

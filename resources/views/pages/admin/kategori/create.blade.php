@@ -16,7 +16,7 @@
             <form action="{{ route('kategori_store') }}" method="POST" enctype="multipart/form-data">
               @csrf
               <div class="form-group">
-                <label for="nama">Nama</label>
+                <label for="nama">Nama Kategori :</label>
                 <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" value="{{ old('nama') }}" placeholder="Enter nama" >
                 @error('nama')
                 <div class="invalid-feedback">{{ $message }}</div>

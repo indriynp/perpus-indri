@@ -16,19 +16,19 @@
             <form action="{{ route('penulis_update', $item->id) }}" method="POST" enctype="multipart/form-data">
               @csrf
               <div class="form-group">
-                <label for="nama">Nama Penulis</label>
+                <label for="nama">Nama Penulis :</label>
                 <input type="text" class="form-control" id="nama" name="nama" placeholder="Enter nama" value="{{ $item->nama }}">
               </div>
               <div class="form-group">
-                <label for="alamat">Alamat</label>
+                <label for="alamat">Alamat :</label>
                 <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Enter alamat" value="{{ $item->alamat }}">
               </div>
               <div class="form-group">
-                <label for="telepon">Telepon</label>
+                <label for="telepon">Telepon :</label>
                 <input type="text" class="form-control" id="telepon" name="telepon" placeholder="Enter telepon" value="{{ $item->telepon }}">
               </div>
               <div class="form-group">
-                <label for="email">Email</label>
+                <label for="email">Email :</label>
                 <input type="text" class="form-control" id="email" name="email" placeholder="Enter email" value="{{ $item->email }}">
               </div>
              

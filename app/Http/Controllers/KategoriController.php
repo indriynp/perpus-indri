@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use PDF;
 
 class KategoriController extends Controller
 {
@@ -101,5 +102,30 @@ class KategoriController extends Controller
         Kategori::destroy($kategori->id);
 
         return redirect('/kategori')->with('toast_success','Data Berhasil di Hapus!');
+    }
+
+    public function generatePDF()
+    {
+        $kategoris = Kategori::get();
+  
+        $data = [
+            'kategoris' => $kategoris,
+        ]; 
+            
+        $pdf = PDF::loadView('pages.admin.kategori.myPDF', $data);
+     
+        return $pdf->stream();
+    }
+
+    public function search(Request $request) {
+        if($request->has('search')) {
+            $kategori = Kategori::where('nama','LIKE','%'.$request->search.'%')->get();
+        }
+        else {
+            $kategori = Kategori::all();
+        }
+       return view('pages.admin.kategori.index', [
+            'kategori' => $kategori,
+        ]);
     }
 }

@@ -16,15 +16,15 @@
             <form action="{{ route('buku_update', $item->id) }}" method="POST" enctype="multipart/form-data">
               @csrf
               <div class="form-group">
-                <label for="nama">Nama Buku</label>
+                <label for="nama">Nama Buku :</label>
                 <input type="text" class="form-control" id="nama" name="nama" placeholder="Enter nama buku" value="{{ $item->nama }}">
               </div>
               <div class="form-group">
-                <label for="tahun_terbit">Tahun Terbit</label>
+                <label for="tahun_terbit">Tahun Terbit :</label>
                 <input type="text" class="form-control" id="tahun_terbit" name="tahun_terbit" placeholder="Enter tahun terbit" value="{{ $item->tahun_terbit }}">
               </div>
               <div class="form-group">
-                <label for="id_penulis">Penulis</label>
+                <label for="id_penulis">Penulis :</label>
                 <select class="form-control" id="id_penulis" name="id_penulis" class="form-control">
                   <option value="">Penulis</option>
                   @foreach($penulis as $pen)
@@ -33,7 +33,7 @@
                 </select>
               </div>
               <div class="form-group">
-                <label for="id_penerbit">Penerbit</label>
+                <label for="id_penerbit">Penerbit :</label>
                 <select class="form-control" id="id_penerbit" name="id_penerbit" class="form-control">
                   <option value="">Pilih Penerbit</option>
                   @foreach($penerbits as $penerbit)
@@ -42,7 +42,7 @@
                 </select>
               </div>
               <div class="form-group">
-                <label for="id_kategori">Kategori</label>
+                <label for="id_kategori">Kategori :</label>
                 <select class="form-control" id="id_kategori" name="id_kategori" class="form-control">
                   <option value="">Pilih Kategori</option>
                   @foreach($kategoris as $kategori)
@@ -51,15 +51,15 @@
                 </select>
               </div>
               <div class="form-group">
-                <label for="sinopsis">Sinopsis</label>
+                <label for="sinopsis">Sinopsis :</label>
                 <textarea class="form-control" style="height:150px" id="sinopsis" name="sinopsis">{{ @$item->sinopsis }}</textarea>
               </div>
                <div class="form-group">
-                <label for="jumlah">Jumlah</label>
+                <label for="jumlah">Jumlah :</label>
                 <input type="text" class="form-control" id="jumlah" name="jumlah" placeholder="Enter penerbit" value="{{ $item->jumlah }}">
               </div>
               <div class="form-group">
-                <label for="sampul">Sampul</label>
+                <label for="sampul">Sampul :</label>
                 <input type="file" class="form-control" id="sampul" name="sampul" value="{{ $item->sampul }}">
                 <img src="{{ asset('storage/'.$item->sampul) }}" style="width: 115px;">
               </div>

@@ -6,6 +6,7 @@ use App\Models\Penulis;
 use App\Models\Buku;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use PDF;
 
 class PenulisController extends Controller
 {
@@ -109,5 +110,31 @@ class PenulisController extends Controller
        Penulis::destroy($penulis->id);
 
         return redirect('/penulis')->with('toast_success','Data Berhasil di Hapus!');
+    }
+
+    public function generatePDF()
+    {
+        $penulis = Penulis::get();
+  
+        $data = [
+            'penulis' => $penulis,
+        ]; 
+            
+        $pdf = PDF::loadView('pages.admin.penulis.myPDF', $data);
+     
+        return $pdf->stream();
+    }
+
+    public function search(Request $request) {
+        if($request->has('search')) {
+            $penulis = Penulis::where('nama','LIKE','%'.$request->search.'%')
+            ->orWhere('email','LIKE','%'.$request->search.'%')->get();
+        }
+        else {
+            $penulis = Penulis::all();
+        }
+       return view('pages.admin.penulis.index', [
+            'penulis' => $penulis,
+        ]);
     }
 }

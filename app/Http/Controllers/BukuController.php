@@ -9,6 +9,7 @@ use App\Models\Penulis;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
+use PDF;
 
 class BukuController extends Controller
 {
@@ -152,5 +153,30 @@ class BukuController extends Controller
         Buku::destroy($buku->id);
 
         return redirect('/buku')->with('toast_success','Data Berhasil di Hapus!');
+    }
+
+    public function generatePDF()
+    {
+        $bukus = Buku::get();
+  
+        $data = [
+            'bukus' => $bukus,
+        ]; 
+            
+        $pdf = PDF::loadView('pages.admin.buku.myPDF', $data);
+     
+        return $pdf->stream();
+    }
+
+    public function search(Request $request) {
+        if($request->has('search')) {
+            $allBuku = Buku::where('nama','LIKE','%'.$request->search.'%')->get();
+        }
+        else {
+            $allBuku = Buku::all();
+        }
+       return view('pages.admin.buku.index', [
+            'allBuku' => $allBuku,
+        ]);
     }
 }

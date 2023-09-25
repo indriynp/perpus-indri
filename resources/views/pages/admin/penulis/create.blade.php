@@ -16,28 +16,28 @@
             <form action="{{ route('penulis_store') }}" method="POST" enctype="multipart/form-data">
               @csrf
                 <div class="form-group">
-                <label for="nama">Nama Penulis</label>
+                <label for="nama">Nama Penulis :</label>
                 <input type="text" class="form-control  @error('nama') is-invalid @enderror" id="nama" name="nama" value="{{ old('nama') }}" placeholder="Enter nama penulis">
                 @error('nama')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>
               <div class="form-group">
-                <label for="alamat">Alamat</label>
+                <label for="alamat">Alamat :</label>
                 <input type="text" class="form-control  @error('alamat') is-invalid @enderror" id="alamat" name="alamat" value="{{ old('alamat') }}" placeholder="Enter alamat">
                 @error('alamat')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>
               <div class="form-group">
-                <label for="telepon">Telepon</label>
+                <label for="telepon">Telepon :</label>
                 <input type="text" class="form-control @error('telepon') is-invalid @enderror" id="telepon" name="telepon" value="{{ old('telepon') }}" placeholder="Enter telepon">
                 @error('telepon')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>
               <div class="form-group">
-                <label for="email">Email</label>
+                <label for="email">Email :</label>
                 <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}" placeholder="Enter penerbit">
                 @error('email')
                 <div class="invalid-feedback">{{ $message }}</div>

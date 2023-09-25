@@ -24,12 +24,27 @@
     @endif
 
     <div class="card-body">
+        <div class="col-md-6">
+            <label>Tanggal Pinjam / Kembali</label>
+         <form method="get" action="{{ route('peminjaman_search') }}">
+            <div class="input-group">
+                <input type="date" name="search" class="form-control">
+                <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+            </div>
+        </form>
+    </div>
+</div>
+
+    <div class="card-body">
         <div style="margin-bottom: 20px">
             <a href="{{ route('peminjaman_create') }}" class="btn btn-primary btn-flat">
                 <i class="fa fa-plus-circle"></i> Tambah Data
             </a>
             <a href="{{ url('export_data') }}" class="btn btn-success btn-flat">
                 <i class="fa fa-file-excel"></i> Export Excel
+            </a>
+            <a href="{{ url('peminjaman-pdf') }}" class="btn btn-danger btn-flat">
+                <i class="fa fa-file-pdf"></i> Export PDF
             </a>
         </div>
         <div style="overflow: auto">

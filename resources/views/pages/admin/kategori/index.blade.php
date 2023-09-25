@@ -24,6 +24,18 @@
     @endif
 
     <div class="card-body">
+        <div class="col-md-6">
+            <label>Nama Kategori</label>
+         <form method="get" action="{{ route('kategori_search') }}">
+            <div class="input-group">
+                <input type="search" name="search" class="form-control"  placeholder="Search Kategori..">
+                <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+            </div>
+        </form>
+    </div>
+</div>
+
+    <div class="card-body">
         <div style="margin-bottom: 20px">
             <a href="{{ route('kategori_create') }}" class="btn btn-primary btn-flat">
                 <i class="fa fa-plus-circle"></i> Tambah Data
@@ -31,13 +43,16 @@
             <a href="{{ url('export_data') }}" class="btn btn-success btn-flat">
                 <i class="fa fa-file-excel"></i> Export Excel
             </a>
+            <a href="{{ url('kategori-pdf') }}" class="btn btn-danger btn-flat">
+                <i class="fa fa-file-pdf"></i> Export PDF
+            </a>
         </div>
         <div style="overflow: auto">
             <table class="table table-bordered table-condensed">
                 <thead>
                     <tr>
                         <th style="text-align:center;">No</th>
-                        <th style="text-align:center;">Nama</th>
+                        <th style="text-align:center;">Nama Kategori</th>
                         <th style="text-align:center;">Jumlah Buku</th>
                         <th width="250px" style="text-align: center;">Action</th>
                     </tr>

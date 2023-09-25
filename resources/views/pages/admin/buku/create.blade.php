@@ -16,21 +16,21 @@
             <form action="{{ route('buku_store') }}" method="POST" enctype="multipart/form-data">
               @csrf
               <div class="form-group">
-                <label for="nama">Nama Buku</label>
+                <label for="nama">Nama Buku :</label>
                 <input type="text" class="form-control  @error('nama') is-invalid @enderror" id="nama" name="nama" value="{{ old('nama') }}" placeholder="Enter nama buku">
                 @error('nama')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>
               <div class="form-group">
-                <label for="tahun_terbit">Tahun Terbit</label>
+                <label for="tahun_terbit">Tahun Terbit :</label>
                 <input type="text" class="form-control  @error('tahun_terbit') is-invalid @enderror" id="tahun_terbit" name="tahun_terbit" value="{{ old('tahun_terbit') }}" placeholder="Enter tahun terbit">
                 @error('tahun_terbit')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>
               <div class="form-group">
-                <label for="id_penulis">Penulis</label>
+                <label for="id_penulis">Penulis :</label>
                 <select class="form-control" id="id_penulis" name="id_penulis">
                   <option selected>Nama Penulis</option>
                   @foreach($penulis as $pen)
@@ -39,7 +39,7 @@
                 </select>
               </div>
               <div class="form-group">
-                <label for="id_penerbit">Penerbit</label>
+                <label for="id_penerbit">Penerbit :</label>
                 <select class="form-control" id="id_penerbit" name="id_penerbit">
                   <option selected>Pilih Penerbit</option>
                   @foreach($penerbits as $penerbit)
@@ -48,7 +48,7 @@
                 </select>
               </div>
               <div class="form-group">
-                <label for="id_kategori">Kategori</label>
+                <label for="id_kategori">Kategori :</label>
                 <select class="form-control" id="id_kategori" name="id_kategori">
                   <option selected>Pilih Kategori</option>
                   @foreach($kategoris as $kategori)
@@ -57,21 +57,21 @@
                 </select>
               </div>
               <div class="form-group">
-                <label for="sinopsis">Sinopsis</label>
+                <label for="sinopsis">Sinopsis :</label>
                 <textarea class="form-control  @error('sinopsis') is-invalid @enderror" style="height:150px" name="sinopsis" value="{{ old('sinopsis') }}" placeholder=""></textarea>
                 @error('sinopsis')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>
               <div class="form-group">
-                <label for="jumlah">Jumlah</label>
+                <label for="jumlah">Jumlah :</label>
                 <input type="text" class="form-control @error('jumlah') is-invalid @enderror" id="jumlah" name="jumlah" value="{{ old('jumlah') }}" placeholder="Enter penulis">
                 @error('jumlah')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>
               <div class="form-group">
-                <label for="sampul">Sampul</label>
+                <label for="sampul">Sampul :</label>
                 <input type="file" class="form-control @error('sampul') is-invalid @enderror" id="sampul" name="sampul" value="{{ old('sampul') }}">
                 @error('sampul')
                 <div class="invalid-feedback">{{ $message }}</div>

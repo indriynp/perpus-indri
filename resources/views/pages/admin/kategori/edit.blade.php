@@ -16,7 +16,7 @@
             <form action="{{ route('kategori_update', $item->id) }}" method="POST" enctype="multipart/form-data">
               @csrf
               <div class="form-group">
-                <label for="nama">Nama</label>
+                <label for="nama">Nama Kategori :</label>
                 <input type="text" class="form-control" id="nama" name="nama" placeholder="Enter nama" value="{{ $item->nama }}">
               </div>
 
