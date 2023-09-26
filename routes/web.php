@@ -53,6 +53,7 @@ Route::post('/buku/store', [BukuController::class, 'store'])->name('buku_store')
 Route::get('/buku/show', [BukuController::class, 'show'])->name('buku_show');
 Route::get('buku-pdf', [BukuController::class, 'generatePDF'])->name('buku-pdf');
 Route::get('/buku/search', [BukuController::class, 'search'])->name('buku_search');
+Route::get('buku-export', [BukuController::class, 'export'])->name('buku-export');
 
 Route::get('/buku/edit/{id}', [BukuController::class, 'edit'])->name('buku_edit');
 Route::get('/buku/show/{id}', [BukuController::class, 'show'])->name('buku_show');

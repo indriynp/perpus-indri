@@ -7,6 +7,8 @@ use App\Models\Kategori;
 use App\Models\Penerbit;
 use App\Models\Penulis;
 use Illuminate\Http\Request;
+use App\Exports\BukuExport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use PDF;
@@ -178,5 +180,10 @@ class BukuController extends Controller
        return view('pages.admin.buku.index', [
             'allBuku' => $allBuku,
         ]);
+    }
+
+   public function export() 
+    {
+        return Excel::download(new BukuExport, 'buku.xlsx');
     }
 }
