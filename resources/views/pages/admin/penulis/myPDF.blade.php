@@ -24,6 +24,7 @@
             <th>Alamat</th>
             <th>Telepon</th>
             <th>Email</th>
+            <th>Jumlah Buku</th>
         </tr>
         </thead>
         <tbody>
@@ -35,6 +36,7 @@
             <td>{{ $pen->alamat }}</td>
             <td>{{ $pen->telepon }}</td>
             <td>{{ $pen->email }}</td>
+            <td>{{ $pen->getJumlahBuku() }}</td>
         </tr>
             @endforeach
         </tbody>

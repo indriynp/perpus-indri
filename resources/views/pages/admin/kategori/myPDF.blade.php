@@ -21,14 +21,16 @@
         <tr>
             <th>No</th>
             <th>Nama Kategori</th>
+            <th>Jumlah Buku</th>
         </tr>
         </thead>
         <tbody>
             @php $i=1 @endphp
-            @foreach($kategoris as $k)
+            @foreach($kategoris as $kategori)
         <tr>
             <td>{{ $i++ }}</td>
-            <td>{{ $k->nama }}</td>
+            <td>{{ $kategori->nama }}</td>
+            <td>{{ $kategori->getJumlahBuku() }}</td>
         </tr>
             @endforeach
         </tbody>

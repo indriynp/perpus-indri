@@ -53,7 +53,7 @@ Route::post('/buku/store', [BukuController::class, 'store'])->name('buku_store')
 Route::get('/buku/show', [BukuController::class, 'show'])->name('buku_show');
 Route::get('buku-pdf', [BukuController::class, 'generatePDF'])->name('buku-pdf');
 Route::get('/buku/search', [BukuController::class, 'search'])->name('buku_search');
-Route::get('buku-export', [BukuController::class, 'export'])->name('buku-export');
+Route::get('buku-export', [BukuController::class, 'exportBukusToExcel'])->name('buku-export');
 
 Route::get('/buku/edit/{id}', [BukuController::class, 'edit'])->name('buku_edit');
 Route::get('/buku/show/{id}', [BukuController::class, 'show'])->name('buku_show');
@@ -67,6 +67,7 @@ Route::post('/kategori/store', [KategoriController::class, 'store'])->name('kate
 Route::get('/kategori/show', [KategoriController::class, 'show'])->name('Kategori_show');
 Route::get('kategori-pdf', [KategoriController::class, 'generatePDF'])->name('kategori-pdf');
 Route::get('/kategori/search', [KategoriController::class, 'search'])->name('kategori_search');
+Route::get('kategori-export', [KategoriController::class, 'exportKategoriToExcel'])->name('kategori-export');
 
 Route::get('/kategori/edit/{id}', [KategoriController::class, 'edit'])->name('kategori_edit');
 Route::get('/kategori/show/{id}', [KategoriController::class, 'show'])->name('kategori_show');
@@ -80,6 +81,7 @@ Route::post('/peminjaman/store', [PeminjamanController::class, 'store'])->name('
 Route::get('/peminjaman/show', [PeminjamanController::class, 'show'])->name('Peminjaman_show');
 Route::get('peminjaman-pdf', [PeminjamanController::class, 'generatePDF'])->name('peminjaman-pdf');
 Route::get('/peminjaman/search', [PeminjamanController::class, 'search'])->name('peminjaman_search');
+Route::get('peminjaman-export', [PeminjamanController::class, 'exportPeminjamanToExcel'])->name('peminjaman-export');
 
 Route::get('/peminjaman/edit/{id}', [PeminjamanController::class, 'edit'])->name('peminjaman_edit');
 Route::get('/peminjaman/show/{id}', [PeminjamanController::class, 'show'])->name('peminjaman_show');
@@ -93,6 +95,7 @@ Route::post('/penulis/store', [PenulisController::class, 'store'])->name('penuli
 Route::get('/penulis/show', [PenulisController::class, 'show'])->name('penulis_show');
 Route::get('penulis-pdf', [PenulisController::class, 'generatePDF'])->name('penulis-pdf');
 Route::get('/penulis/search', [PenulisController::class, 'search'])->name('penulis_search');
+Route::get('penulis-export', [PenulisController::class, 'exportPenulisToExcel'])->name('penulis-export');
 
 Route::get('/penulis/edit/{id}', [PenulisController::class, 'edit'])->name('penulis_edit');
 Route::get('/penulis/show/{id}', [PenulisController::class, 'show'])->name('penulis_show');
@@ -106,6 +109,7 @@ Route::post('/penerbit/store', [PenerbitController::class, 'store'])->name('pene
 Route::get('/penerbit/show', [PenerbitController::class, 'show'])->name('penerbit_show');
 Route::get('penerbit-pdf', [PenerbitController::class, 'generatePDF'])->name('penerbit-pdf');
 Route::get('/penerbit/search', [PenerbitController::class, 'search'])->name('penerbit_search');
+Route::get('penerbit-export', [PenerbitController::class, 'exportPenerbitToExcel'])->name('penerbit-export');
 
 Route::get('/penerbit/edit/{id}', [PenerbitController::class, 'edit'])->name('penerbit_edit');
 Route::get('/penerbit/show/{id}', [PenerbitController::class, 'show'])->name('penerbit_show');

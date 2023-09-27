@@ -24,6 +24,7 @@
             <th>Alamat</th>
             <th>Telepon</th>
             <th>Email</th>
+            <th>Jumlah Buku</th>
         </tr>
         </thead>
         <tbody>
@@ -35,6 +36,7 @@
             <td>{{ $terbit->alamat }}</td>
             <td>{{ $terbit->telepon }}</td>
             <td>{{ $terbit->email }}</td>
+            <td>{{ $terbit->getJumlahBuku() }}</td>
         </tr>
             @endforeach
         </tbody>

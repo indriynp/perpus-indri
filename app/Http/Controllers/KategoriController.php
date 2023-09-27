@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Kategori;
 use Illuminate\Http\Request;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use Illuminate\Support\Facades\Redirect;
 use PDF;
 
@@ -127,5 +129,30 @@ class KategoriController extends Controller
        return view('pages.admin.kategori.index', [
             'kategori' => $kategori,
         ]);
+    }
+
+    public function exportKategoriToExcel()
+    {
+        $spreadsheet = new Spreadsheet();
+
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->setCellValue('A1', 'Nama Kategori');
+
+    // Mengambil data Kategori dari model Kategori
+        $kategoris = Kategori::all();
+
+        $row = 2;
+        foreach ($kategoris as $kategori) {
+            $sheet->setCellValue('A' . $row, $kategori->nama);
+            $row++;
+        }
+        
+    // Menyimpan Spreadsheet ke dalam file Excel
+        $writer = new Xlsx($spreadsheet);
+        $filename = 'data_kategori.xlsx';
+        $writer->save($filename);
+
+    // Mengirim file Excel sebagai respons HTTP
+        return response()->download($filename)->deleteFileAfterSend(true);
     }
 }

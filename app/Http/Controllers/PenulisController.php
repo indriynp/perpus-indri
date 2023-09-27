@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Penulis;
 use App\Models\Buku;
 use Illuminate\Http\Request;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use Illuminate\Support\Facades\Redirect;
 use PDF;
 
@@ -136,5 +138,36 @@ class PenulisController extends Controller
        return view('pages.admin.penulis.index', [
             'penulis' => $penulis,
         ]);
+    }
+
+    public function exportPenulisToExcel()
+    {
+        $spreadsheet = new Spreadsheet();
+
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->setCellValue('A1', 'Nama Penulis');
+        $sheet->setCellValue('B1', 'Alamat');
+        $sheet->setCellValue('C1', 'Telepon');
+        $sheet->setCellValue('D1', 'Email');
+
+    // Mengambil data penulis dari model Penulis
+        $penulis = Penulis::all();
+
+        $row = 2;
+        foreach ($penulis as $pen) {
+            $sheet->setCellValue('A' . $row, $pen->nama);
+            $sheet->setCellValue('B' . $row, $pen->alamat);
+            $sheet->setCellValue('C' . $row, $pen->telepon);
+            $sheet->setCellValue('D' . $row, $pen->email);
+            $row++;
+        }
+        
+    // Menyimpan Spreadsheet ke dalam file Excel
+        $writer = new Xlsx($spreadsheet);
+        $filename = 'data_penulis.xlsx';
+        $writer->save($filename);
+
+    // Mengirim file Excel sebagai respons HTTP
+        return response()->download($filename)->deleteFileAfterSend(true);
     }
 }

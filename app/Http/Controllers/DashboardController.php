@@ -12,7 +12,7 @@ class DashboardController extends Controller
 {
     public function index(Request $request)
     {
-         $query =  Buku::query();
+        $query =  Buku::query();
         $buku =  $query->count();
 
         $query =  Penulis::query();

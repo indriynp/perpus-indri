@@ -7,8 +7,9 @@ use App\Models\Kategori;
 use App\Models\Penerbit;
 use App\Models\Penulis;
 use Illuminate\Http\Request;
-use App\Exports\BukuExport;
-use Maatwebsite\Excel\Facades\Excel;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use PDF;
@@ -36,12 +37,12 @@ class BukuController extends Controller
        $penerbits = Penerbit::all();
        $penulis = Penulis::all();
 
-        return view('pages.admin.buku.create', [
-            'kategoris' => $kategoris,
-            'penerbits' => $penerbits,
-            'penulis' => $penulis,
-        ]);
-    }
+       return view('pages.admin.buku.create', [
+        'kategoris' => $kategoris,
+        'penerbits' => $penerbits,
+        'penulis' => $penulis,
+    ]);
+   }
 
     /**
      * Store a newly created resource in storage.
@@ -160,13 +161,13 @@ class BukuController extends Controller
     public function generatePDF()
     {
         $bukus = Buku::get();
-  
+
         $data = [
             'bukus' => $bukus,
         ]; 
-            
+
         $pdf = PDF::loadView('pages.admin.buku.myPDF', $data);
-     
+
         return $pdf->stream();
     }
 
@@ -177,13 +178,57 @@ class BukuController extends Controller
         else {
             $allBuku = Buku::all();
         }
-       return view('pages.admin.buku.index', [
+        return view('pages.admin.buku.index', [
             'allBuku' => $allBuku,
         ]);
     }
 
-   public function export() 
+    public function exportBukusToExcel()
     {
-        return Excel::download(new BukuExport, 'buku.xlsx');
+        $spreadsheet = new Spreadsheet();
+
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->setCellValue('A1', 'Nama Buku');
+        $sheet->setCellValue('B1', 'Tahun Terbit');
+        $sheet->setCellValue('C1', 'Penulis');
+        $sheet->setCellValue('D1', 'Penerbit');
+        $sheet->setCellValue('E1', 'Kategori');
+        $sheet->setCellValue('F1', 'Sinopsis');
+        $sheet->setCellValue('G1', 'Jumlah');
+        $sheet->setCellValue('H1', 'Sampul');
+
+    // Mengambil data buku dari model Buku
+        $bukus = Buku::with('penulis')->get();
+        $bukus = Buku::with('penerbit')->get();
+        $bukus = Buku::with('kategori')->get();
+
+        $row = 2;
+        foreach ($bukus as $buku) {
+            $sheet->setCellValue('A' . $row, $buku->nama);
+            $sheet->setCellValue('B' . $row, $buku->tahun_terbit);
+            $sheet->setCellValue('C' . $row, $buku->penulis->nama);
+            $sheet->setCellValue('D' . $row, $buku->penerbit->nama);
+            $sheet->setCellValue('E' . $row, $buku->kategori->nama);
+            $sheet->setCellValue('F' . $row, $buku->sinopsis);
+            $sheet->setCellValue('G' . $row, $buku->jumlah);
+    // Menambahkan gambar dalam sel Excel
+            $drawing = new Drawing();
+            $drawing->setName('Sampul');
+            $drawing->setDescription('Sampul Buku');
+            $drawing->setPath(public_path('storage/'.$buku->sampul));
+            $drawing->setCoordinates('H' . $row);
+            $drawing->setHeight(100);
+            $drawing->setWidth(100);
+            $drawing->setWorksheet($sheet);
+            $row++;
+        }
+        
+    // Menyimpan Spreadsheet ke dalam file Excel
+        $writer = new Xlsx($spreadsheet);
+        $filename = 'data_buku.xlsx';
+        $writer->save($filename);
+
+    // Mengirim file Excel sebagai respons HTTP
+        return response()->download($filename)->deleteFileAfterSend(true);
     }
 }

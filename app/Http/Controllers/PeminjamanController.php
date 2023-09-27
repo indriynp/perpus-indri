@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Peminjaman;
 use App\Models\Buku;
 use Illuminate\Http\Request;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use Illuminate\Support\Facades\Redirect;
 use PDF;
 
@@ -147,5 +149,40 @@ class PeminjamanController extends Controller
        return view('pages.admin.peminjaman.index', [
             'peminjaman' => $peminjaman,
         ]);
+    }
+
+    public function exportPeminjamanToExcel()
+    {
+        $spreadsheet = new Spreadsheet();
+
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->setCellValue('A1', 'Nama Buku');
+        $sheet->setCellValue('B1', 'Anggota');
+        $sheet->setCellValue('C1', 'Tanggal Pinjam');
+        $sheet->setCellValue('D1', 'Tanggal Kembali');
+        $sheet->setCellValue('E1', 'Denda');
+        $sheet->setCellValue('F1', 'Status Peminjaman');
+
+    // Mengambil data peminjaman dari model Peminjaman
+        $peminjaman = Peminjaman::with('buku')->get();
+
+        $row = 2;
+        foreach ($peminjaman as $pinjam) {
+            $sheet->setCellValue('A' . $row, $pinjam->buku->nama);
+            $sheet->setCellValue('B' . $row, $pinjam->id_anggota);
+            $sheet->setCellValue('C' . $row, $pinjam->tanggal_pinjam);
+            $sheet->setCellValue('D' . $row, $pinjam->tanggal_kembali);
+            $sheet->setCellValue('E' . $row, $pinjam->denda);
+            $sheet->setCellValue('F' . $row, $pinjam->id_status_peminjaman);
+            $row++;
+        }
+        
+    // Menyimpan Spreadsheet ke dalam file Excel
+        $writer = new Xlsx($spreadsheet);
+        $filename = 'data_peminjaman.xlsx';
+        $writer->save($filename);
+
+    // Mengirim file Excel sebagai respons HTTP
+        return response()->download($filename)->deleteFileAfterSend(true);
     }
 }

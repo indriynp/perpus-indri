@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Penerbit;
 use Illuminate\Http\Request;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use Illuminate\Support\Facades\Redirect;
 use PDF;
 
@@ -134,5 +136,36 @@ class PenerbitController extends Controller
        return view('pages.admin.penerbit.index', [
             'penerbit' => $penerbit,
         ]);
+    }
+
+    public function exportPenerbitToExcel()
+    {
+        $spreadsheet = new Spreadsheet();
+
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->setCellValue('A1', 'Nama Penerbit');
+        $sheet->setCellValue('B1', 'Alamat');
+        $sheet->setCellValue('C1', 'Telepon');
+        $sheet->setCellValue('D1', 'Email');
+
+    // Mengambil data penerbit dari model Penerbit
+        $penerbit = Penerbit::all();
+
+        $row = 2;
+        foreach ($penerbit as $terbit) {
+            $sheet->setCellValue('A' . $row, $terbit->nama);
+            $sheet->setCellValue('B' . $row, $terbit->alamat);
+            $sheet->setCellValue('C' . $row, $terbit->telepon);
+            $sheet->setCellValue('D' . $row, $terbit->email);
+            $row++;
+        }
+        
+    // Menyimpan Spreadsheet ke dalam file Excel
+        $writer = new Xlsx($spreadsheet);
+        $filename = 'data_penerbit.xlsx';
+        $writer->save($filename);
+
+    // Mengirim file Excel sebagai respons HTTP
+        return response()->download($filename)->deleteFileAfterSend(true);
     }
 }
