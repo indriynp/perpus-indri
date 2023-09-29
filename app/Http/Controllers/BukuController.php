@@ -183,7 +183,7 @@ class BukuController extends Controller
         ]);
     }
 
-    public function exportBukusToExcel()
+    public function exportBukuToExcel()
     {
         $spreadsheet = new Spreadsheet();
 
